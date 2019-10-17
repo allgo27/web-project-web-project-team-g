@@ -84,13 +84,32 @@ div.content {
 
 div.aboutcontent{
     background: rgba(255, 255, 255, 0.4);
-    width: 50%;
-    float: center;
-    margin-right: 3%;
-    padding: 1%;
     width: 55%;
-    left: 70%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 20px;
+    padding: 3%;
+    line-height: 1.4;
+    
+    
 }
+
+table {
+    background: rgba(255, 255, 255, 0.4);
+    width: 55%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 20px;
+    padding: 10%;
+    
+    border-spacing: 1px;
+}
+
+td {
+    padding: 10px;
+    line-height 1.8;
+}
+
 
 .tabs {
     background: #1e3f5a;
@@ -105,6 +124,12 @@ div.aboutcontent{
     margin-left: 20px;
 }
 
+button {
+    display:block;
+}
+body.nothome {
+    background-image:url("datapagebg.png");
+}
 body {
   /* The image used */
   background: rgb(0, 0, 0);
