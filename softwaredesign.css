@@ -52,16 +52,30 @@ p {
 h1 {
     margin-top: 8px;
     margin-left: 45px;
-    font-size: 47px;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: Georgia;
+    font-size: 52px;
+    color: rgba(245, 226, 189, 0.7);
+    font-family: georgia;
 }
 
 h2 {
-    margin-left: 45px;
+    margin-left: 50px;
     font-style: italic;
+    font-family: optima;
+    font-size: 23px;
     color: #1e3f5a;
     
+}
+
+h3 {
+    margin-left: 45px;
+    font-size: 32px;
+    color: #f5e2bd;
+    font-family: optima;
+}
+
+h4 {
+    font-weight: bold;
+    font-family: Georgia;
 }
 
 div.findbooks {
@@ -90,6 +104,7 @@ div.aboutcontent{
     margin-top: 20px;
     padding: 3%;
     line-height: 1.4;
+    font-size: 20px;
     
     
 }
@@ -99,15 +114,15 @@ table {
     width: 55%;
     float: left;
     margin-left: 3%;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10%;
-    
     border-spacing: 1px;
 }
 
 td {
-    padding: 10px;
+    padding: 20px;
     line-height 1.8;
+    text-align:center;
 }
 
 
@@ -126,6 +141,18 @@ td {
 
 button {
     display:block;
+    position:absolute;
+    left:45%;
+    margin-top:35%;
+    font-size: 20px;
+    font-family: georgia;
+    padding: 10px 24px;
+    background-color: #1e3f5a;
+    color: #f5e2bd;
+}
+button:hover {
+    background-color: #3978AC;
+    color:#f5e2bd;
 }
 body.nothome {
     background-image:url("datapagebg.png");
@@ -143,4 +170,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+a:link {
+    color: #3978ac;
+}
+
+.form-submit-button {
+    background:#1e3f5a;
+    color: #f5e2bd;
 }
