@@ -121,7 +121,7 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT title FROM books WHERE book_id=&bookID"
+            query = "SELECT title FROM books WHERE book_id=" + str(bookID)
             cursor.execute(query)
             return cursor.fetchall()
         
@@ -146,7 +146,10 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
-    mylist = data.getTitle(1)
+    mylist = []
+    mylist.append(data.getTitle(1))
+    mylist.append(data.getAuthor(1))
+    mylist.append(data.getImageURL(1))
     print(mylist)
     
     
