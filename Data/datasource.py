@@ -119,11 +119,9 @@ class DataSource:
         RETURN:
             a string containing the name of the specified book
         '''
-        
-        titleyo = "Frankenstein"
         try:
             cursor = self.connection.cursor()
-            query = "SELECT authors FROM books WHERE title=titleyo"
+            query = "SELECT title FROM books WHERE book_id=" + bookID
             cursor.execute(query)
             return cursor.fetchall()
         
