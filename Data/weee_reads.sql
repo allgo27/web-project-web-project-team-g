@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
+  book_id text,
+  goodreads_book_id text,
   authors text,
   original_publication_year text,
   original_title text,
@@ -7,8 +9,7 @@ CREATE TABLE books (
   average_rating text,
   ratings_count text,
   image_url text
-  book_id text,
-  goodreads_book_id text,
+  
 );
 
 DROP TABLE IF EXISTS ratings;
