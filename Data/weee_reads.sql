@@ -20,9 +20,9 @@ CREATE TABLE ratings (
 
 DROP TABLE IF EXISTS book_tags;
 CREATE TABLE book_tags (
-	goodreads_book_id int,
-	tag_id int,
-	tagcount int
+	goodreads_book_id text,
+	tag_id text,
+	tagcount text
 );
 
 DROP TABLE IF EXISTS tags;
