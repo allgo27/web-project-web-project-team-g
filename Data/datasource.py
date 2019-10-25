@@ -121,7 +121,7 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT title FROM books"
+            query = "SELECT original_title FROM books"
             cursor.execute(query)
             return cursor.fetchall()
         
