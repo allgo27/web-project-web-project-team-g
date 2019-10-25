@@ -1,21 +1,21 @@
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
-  authors varchar(300),
-  original_publication_year int,
-  original_title varchar(300),
-  title varchar(300),
-  average_rating float(3),
-  ratings_count int,
-  image_url varchar(300),
-  small_image_url varchar(300),
-  book_id int
+  authors text,
+  original_publication_year text,
+  original_title text,
+  title text,
+  average_rating text,
+  ratings_count text,
+  image_url text,
+  small_image_url text,
+  book_id text
 );
 
 DROP TABLE IF EXISTS ratings;
 CREATE TABLE ratings (
-  user_id int,
-  book_id int,
-  rating int
+  user_id text,
+  book_id text,
+  rating text
 );
 
 DROP TABLE IF EXISTS book_tags;
@@ -27,7 +27,7 @@ CREATE TABLE book_tags (
 
 DROP TABLE IF EXISTS tags;
 CREATE TABLE tags (
-	tag_id int,
-	tag_name varchar(100)
+	tag_id text,
+	tag_name text
 )
 
