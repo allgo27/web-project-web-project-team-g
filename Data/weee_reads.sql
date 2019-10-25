@@ -29,5 +29,5 @@ DROP TABLE IF EXISTS tags;
 CREATE TABLE tags (
 	tag_id text,
 	tag_name text
-)
+);
 
