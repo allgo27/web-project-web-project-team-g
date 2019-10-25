@@ -123,7 +123,7 @@ class DataSource:
             cursor = self.connection.cursor()
             query = "SELECT title FROM books WHERE book_id=(%s);" 
             cursor.execute(query, (str(bookID),))
-            return cursor.fetchall()
+            return cursor.fetchone()
         
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
@@ -151,7 +151,7 @@ def main():
     #mylist.append(data.getTitle(1))
     #mylist.append(data.getAuthor(1))
     #mylist.append(data.getImageURL(1))
-    print(mylist)
+    #print(mylist)
     
     
 main()
