@@ -103,7 +103,7 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT authors FROM books WHERE book_id=1" 
+            query = "SELECT authors FROM books WHERE book_id='1'" 
             cursor.execute(query)
             return cursor.fetchall()
         
