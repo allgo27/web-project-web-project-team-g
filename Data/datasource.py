@@ -146,8 +146,9 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
-    mylist = []
-    mylist.append(data.getTitle(1))
+    print(mylist.append(data.getTitle(1)))
+    #mylist = []
+    #mylist.append(data.getTitle(1))
     #mylist.append(data.getAuthor(1))
     #mylist.append(data.getImageURL(1))
     print(mylist)
