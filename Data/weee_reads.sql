@@ -4,7 +4,7 @@ CREATE TABLE books (
   original_publication_year int,
   original_title varchar(300),
   title varchar(300),
-  average_rating float(3, 2),
+  average_rating float(3),
   ratings_count int,
   image_url varchar(300),
   small_image_url varchar(300),
