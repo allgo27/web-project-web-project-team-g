@@ -145,7 +145,7 @@ class DataSource:
     
 def main():
     data = DataSource()
-    data.connect("bruelle", "spider268awesome")
+    data.connect("allgoodm", "cow245happy")
     mylist = data.getTitle(1)
     print(mylist)
     
