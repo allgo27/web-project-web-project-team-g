@@ -84,7 +84,7 @@ class DataSource:
         '''
         
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT image_url FROM books WHERE book_id=" + str(bookID)
             cursor.execute(query)
             return cursor.fetchall()
@@ -102,7 +102,7 @@ class DataSource:
             a string containing the name of the author of the specified book
         '''
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT * FROM authors WHERE book_id=" + str(bookID) 
             cursor.execute(query)
             return cursor.fetchall()
