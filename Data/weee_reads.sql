@@ -8,7 +8,7 @@ CREATE TABLE books (
   ratings_count text,
   image_url text,
   small_image_url text,
-  book_id text
+  book_id int
 );
 
 DROP TABLE IF EXISTS ratings;
