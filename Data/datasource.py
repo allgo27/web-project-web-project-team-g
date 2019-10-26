@@ -151,7 +151,7 @@ def main():
     data.connect("allgoodm", "cow245happy")
     #answer = data.getTitle(1)
     #print(answer[0])
-    print(data.getTitle(2))
+    print(data.getTitle(4))
     #mylist = []
     #mylist.append(data.getTitle(1))
     #mylist.append(data.getAuthor(1))
