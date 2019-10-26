@@ -146,9 +146,9 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
-   # answer = data.getTitle(1))
-    #print(answer[])
-    print(data.getTitle(1))
+    answer = data.getTitle(1))
+    print(answer[0])
+    #print(data.getTitle(1))
     #mylist = []
     #mylist.append(data.getTitle(1))
     #mylist.append(data.getAuthor(1))
