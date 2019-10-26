@@ -121,8 +121,11 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT title FROM books WHERE book_id=(%s);" 
-            cursor.execute(query, (str(bookID),))
+            book = str(bookID)
+            query = "SELECT title FROM books WHERE book_id=" + book
+            cursor.execute(query)
+            #query = "SELECT title FROM books WHERE book_id=(%s);" 
+            #cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
         
         except Exception as e:
@@ -146,10 +149,9 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
-    answer = data.getTitle(1)
-    answer2=answer[0]
-    print(answer2)
-    #print(data.getTitle(1))
+    #answer = data.getTitle(1)
+    #print(answer[0])
+    print(data.getTitle(1))
     #mylist = []
     #mylist.append(data.getTitle(1))
     #mylist.append(data.getAuthor(1))
