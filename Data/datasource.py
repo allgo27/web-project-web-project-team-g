@@ -151,7 +151,7 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
     bookTitle = data.getTitle(4)
-    bookTitleNoBracket = bookTitle[0]
+    bookTitleNoBracket = bookTitle
     #print(data.getTitle(4))
     mylist = []
     mylist.append(bookTitleNoBracket)
