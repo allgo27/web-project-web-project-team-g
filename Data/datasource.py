@@ -85,9 +85,10 @@ class DataSource:
         
         try:
             cursor = self.connection.cursor()
-            query = "SELECT image_url FROM books WHERE book_id=" + str(bookID)
-            cursor.execute(query)
-            return cursor.fetchall()
+            book = str(bookID)
+            query = "SELECT image_url FROM books WHERE book_id=(%s);" 
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchone()
         
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
@@ -151,10 +152,11 @@ def main():
     data.connect("allgoodm", "cow245happy")
     bookTitle = data.getTitle(4)
     author = data.getAuthor(4)
+    image = data.getImageURL(4)
     mylist = []
     mylist.append(bookTitle[0])
     mylist.append(author[0])
-    #mylist.append(data.getImageURL(1))
+    mylist.append(image[0])
     print(mylist)
     
     
