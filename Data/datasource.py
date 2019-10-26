@@ -153,7 +153,7 @@ def main():
     author = data.getAuthor(4)
     mylist = []
     mylist.append(bookTitle[0])
-    mylist.append(author[0]))
+    mylist.append(author[0])
     #mylist.append(data.getImageURL(1))
     print(mylist)
     
