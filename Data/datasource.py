@@ -126,7 +126,7 @@ class DataSource:
             #cursor.execute(query)
             query = "SELECT title FROM books WHERE book_id=(%s);" 
             cursor.execute(query, (str(bookID),))
-            return cursor.fetchall()
+            return cursor.fetchone()
         
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
