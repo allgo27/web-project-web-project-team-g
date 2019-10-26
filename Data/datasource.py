@@ -103,9 +103,10 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT authors FROM books WHERE book_id=" + str(bookID) 
-            cursor.execute(query)
-            return cursor.fetchall()
+            book = str(bookID)
+            query = "SELECT authors FROM books WHERE book_id=(%s);" 
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchone()
         
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
@@ -122,8 +123,6 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             book = str(bookID)
-            #query = "SELECT title FROM books WHERE book_id=" + book
-            #cursor.execute(query)
             query = "SELECT title FROM books WHERE book_id=(%s);" 
             cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
@@ -153,8 +152,7 @@ def main():
     bookTitle = data.getTitle(4)
     mylist = []
     mylist.append(bookTitle[0])
-    #mylist.append(data.getTitle(4))
-    #mylist.append(data.getAuthor(1))
+    mylist.append(data.getAuthor(4))
     #mylist.append(data.getImageURL(1))
     print(mylist)
     
