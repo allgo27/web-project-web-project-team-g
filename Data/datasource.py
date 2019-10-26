@@ -147,7 +147,7 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
     answer = data.getTitle(1)
-    answer2=asnwer[0]
+    answer2=answer[0]
     print(answer2)
     #print(data.getTitle(1))
     #mylist = []
