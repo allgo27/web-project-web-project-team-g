@@ -151,15 +151,12 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
     bookTitle = data.getTitle(4)
-    bookTitleNoBracket = bookTitle
-    print(bookTitleNoBracket)
-    #print(data.getTitle(4))
     mylist = []
-    mylist.append(bookTitleNoBracket)
+    mylist.append(bookTitle[0])
     #mylist.append(data.getTitle(4))
     #mylist.append(data.getAuthor(1))
     #mylist.append(data.getImageURL(1))
-    #print(mylist)
+    print(mylist)
     
     
 main()
