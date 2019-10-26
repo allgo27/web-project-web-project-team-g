@@ -122,11 +122,11 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             book = str(bookID)
-            query = "SELECT title FROM books WHERE book_id::varchar=" + book
-            cursor.execute(query)
-            #query = "SELECT title FROM books WHERE book_id=(%s);" 
-            #cursor.execute(query, (str(bookID),))
-            return cursor.fetchone()
+            #query = "SELECT title FROM books WHERE book_id=" + book
+            #cursor.execute(query)
+            query = "SELECT title FROM books WHERE book_id=(%s);" 
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchall()
         
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
