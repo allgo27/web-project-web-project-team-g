@@ -150,9 +150,10 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow245happy")
     bookTitle = data.getTitle(4)
+    author = data.getAuthor(4)
     mylist = []
     mylist.append(bookTitle[0])
-    mylist.append(data.getAuthor(4))
+    mylist.append(author[0]))
     #mylist.append(data.getImageURL(1))
     print(mylist)
     
