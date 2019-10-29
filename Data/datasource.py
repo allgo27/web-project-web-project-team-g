@@ -183,7 +183,7 @@ def main():
     mylist.append(author[0])
     mylist.append(image[0])
     #print(mylist)
-    print(data.getFans(400))
+    print(data.getFans(10000))
 
 
 main()
