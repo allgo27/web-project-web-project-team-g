@@ -175,7 +175,7 @@ class DataSource:
 
 def main():
     data = DataSource()
-    data.connect("bruelle", "spider268awesome")
+    data.connect("allgoodm", "cow245happy")
     bookTitle = data.getTitle(4)
     print(bookTitle)
     author = data.getAuthor(4)
