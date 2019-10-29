@@ -142,7 +142,7 @@ class DataSource:
             book = str(bookID)
             query = "SELECT user FROM ratings WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
-            return cursor.fetchall()
+            print(cursor.fetchall())
 
 
         except Exception as e:
@@ -184,8 +184,7 @@ def main():
     mylist.append(bookTitle[0])
     mylist.append(author[0])
     mylist.append(image[0])
-    data.getIntersections("400", "401")
-    print(mylist)
+    #print(mylist)
     print(data.getFans("400"))
 
 
