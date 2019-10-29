@@ -139,8 +139,8 @@ class DataSource:
     def getFans(self, bookID):
         try:
             cursor = self.connection.cursor()
-            query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
-            cursor.execute(query, (str(bookID),))
+            query = "SELECT user_id FROM ratings WHERE book_id=(%d);"
+            cursor.execute(query, bookID,)
             print(cursor.fetchall())
 
 
@@ -161,7 +161,7 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             book = str(bookID)
-            query = "SELECT user FROM ratings WHERE book_id=%d;"
+            query = "SELECT user_id FROM ratings WHERE book_id=%d;"
             cursor.execute(query, bookID,)
             return cursor.fetchall()
 
