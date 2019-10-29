@@ -184,9 +184,9 @@ def main():
     mylist.append(bookTitle[0])
     mylist.append(author[0])
     mylist.append(image[0])
-    getIntersections(400)
+    data.getIntersections(400)
     print(mylist)
-    print(getFans(400))
+    print(data.getFans(400))
 
 
 main()
