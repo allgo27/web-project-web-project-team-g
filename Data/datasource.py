@@ -186,6 +186,7 @@ def main():
     mylist.append(image[0])
     getIntersections(400)
     print(mylist)
+    print(getFans(400))
 
 
 main()
