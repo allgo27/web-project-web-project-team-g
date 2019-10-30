@@ -208,7 +208,7 @@ class DataSource:
 
 def main():
     data = DataSource()
-    data.connect("allgoodm", "cow245happy")
+    data.connect("bruelle", "spider268awesome")
     bookTitle = data.getTitle(4)
     author = data.getAuthor(4)
     image = data.getImageURL(4)
