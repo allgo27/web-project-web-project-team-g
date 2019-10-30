@@ -136,7 +136,7 @@ class DataSource:
         book2Fans = set(self.getFans(bookID2))
         commonFans = book2Fans.intersection(book1Fans)
 
-        return commonFans
+        return commonFans[0:2]
 
     def getBookList(self, userID):
         try:
@@ -170,7 +170,7 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
-    def getBookRecommendation(self, bookID1, bookID2):
+    def getBookRecID(self, bookID1, bookID2):
         '''
         Returns the database bookIDs of three recommended books
         PARAMETERS:
@@ -180,18 +180,18 @@ class DataSource:
         RETURN:
         a tuple of three database bookIDs
         '''
-        try:
-            cursor = self.connection.cursor()
-            book = str(bookID)
-            query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
-            cursor.execute(query, (str(bookID),))
-            return cursor.fetchall()
+        commonFans = self.getFanIntersections(bookID1, bookID2)
+        #if there are none, what do we do?
+        commonBooks = self.getBookListIntersection(commonFans[0], commonFans[1])
+        #if there are none, what do we dooooo?
+        if len(commonBooks) >= 3:
+            return commonBooks[0:4]
+        else:
+            for i in range (however many we need):
+            getBasedOn1;
+            add them together (how?)
+            return commonbooks
 
-
-        except Exception as e:
-            print("Something went wrong when executing the query: ", e)
-            return None
-        return ()
 
 
 def main():
@@ -207,5 +207,7 @@ def main():
     #print(mylist)
     #print(data.getFanIntersections(5, 10000))
     #print(data.getBookList(7747))
-    print(data.getBookListIntersections(7747, 7717))
+    #print(data.getBookListIntersections(7747, 7717))
+
+
 main()
