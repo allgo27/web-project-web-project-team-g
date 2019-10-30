@@ -150,6 +150,14 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
+    def getBookListIntersections(self, userID1, userID2):
+        # Return intersection of fans of both books
+        user1Books = set(self.getBookList(userID1))
+        user2Books = set(self.getBookList(userID2))
+        commonBooks = user1Books.intersection(user2Books)
+
+        return commonBooks
+
     def getFans(self, bookID):
         try:
             cursor = self.connection.cursor()
@@ -198,6 +206,6 @@ def main():
     mylist.append(image[0])
     #print(mylist)
     #print(data.getFanIntersections(5, 10000))
-    print(data.getBookList(7747))
-
+    #print(data.getBookList(7747))
+    print(getBookListIntersections(self, 7747, 7717))
 main()
