@@ -165,28 +165,26 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
-    def getBookListIntersections(self, fanSet):
+    def getBookListIntersections(self, fanSet, book1, book2):
         # Return intersection of fans of both books
         i = 0
         bookDict = {}
-        for userID in fanSet:
+        for userID in fanSet: #Iterate through fans
             if i > 100:
                 break
 
             user1Books = self.getBookList(userID)
             for book in user1Books:
+                if book == book1 or book == book2:
+                    continue
                 if book in bookDict:
                     bookDict[book] += 1
                 else:
                     bookDict[book] = 1
 
             i += 1
-        bookRecList = []
-        bookRecList[0] = max(bookDict, key=lambda key: bookDict[key])
-        bookDict.pop(bookRecList[0])
-        bookRecList[1] = max(bookDict, key=lambda key: bookDict[key])
-        bookDict.pop(bookRecList[1])
-        bookRecList[2] = max(bookDict, key=lambda key: bookDict[key])
+
+        return bookDict
 
 
 
@@ -200,6 +198,22 @@ class DataSource:
         commonBooks = user1Books.intersection(user2Books)'''
 
         return commonBooks
+
+    def getTopBooks(self, bookDict):
+        #Returns list of top 3 books with highest value (ie number of relevant fans)
+        #Finds max value using code modified from thewolf's suggestion on StackExchange
+        bookRecList = []
+        if len(bookDict) > 3:
+            bookRecList[0] = max(bookDict, key=lambda key: bookDict[key])
+            bookDict.pop(bookRecList[0])
+            bookRecList[1] = max(bookDict, key=lambda key: bookDict[key])
+            bookDict.pop(bookRecList[1])
+            bookRecList[2] = max(bookDict, key=lambda key: bookDict[key])
+
+        else:
+            #add code here to get random books from a fan
+
+        return bookRecList
 
     def getFans(self, bookID):
         try:
@@ -225,15 +239,14 @@ class DataSource:
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
         #if there are none, what do we do?
-        commonBooks = self.getBookListIntersection(commonFanSet)
-        #if there are none, what do we dooooo?
-        if len(commonBooks) > 3:
-            commonBooks = commonBooks[0:4]
-        if len(commonBooks) == 0:
+        bookDict = self.getBookListIntersection(commonFanSet, bookID1, bookID2)
+        topBooks = getTopBooks(bookDict, commonFanSet)
+
+        if len(topBooks) == 0:
             print("Error no books for you")
             return None
         else:
-            return commonBooks
+            return topBooks
 
 
 def main():
