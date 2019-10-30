@@ -197,14 +197,13 @@ class DataSource:
         #if there are none, what do we do?
         commonBooks = self.getBookListIntersection(commonFans[0], commonFans[1])
         #if there are none, what do we dooooo?
-        if len(commonBooks) >= 3:
-            return commonBooks[0:4]
+        if len(commonBooks) > 3:
+            commonBooks = commonBooks[0:4]
+        if len(commonBooks) = 0:
+            print("Error no books for you")
+            return None
         else:
-            for i in range (however many we need):
-            getBasedOn1;
-            add them together (how?)
-            return commonbooks
-
+            return commonBooks
 
 
 def main():
