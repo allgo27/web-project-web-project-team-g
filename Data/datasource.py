@@ -135,6 +135,8 @@ class DataSource:
         book1Fans = set(self.getFans(bookID1))
         book2Fans = set(self.getFans(bookID2))
         commonFans = book2Fans.intersection(book1Fans)
+        print(book1Fans)
+        print(book2Fans)
         i = 0
         while len(commonFans) < 3:
             if len(book1Fans) > i:
