@@ -130,13 +130,25 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
-    def getIntersections(self, bookID1, bookID2):
+    def getFanIntersections(self, bookID1, bookID2):
         # Return intersection of fans of both books
         book1Fans = set(self.getFans(bookID1))
         book2Fans = set(self.getFans(bookID2))
         commonFans = book2Fans.intersection(book1Fans)
 
         return commonFans
+
+    def getBookList(self, userID):
+        try:
+            cursor = self.connection.cursor()
+            query = "SELECT book_id FROM ratings WHERE user_id=(%s);"
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchall()
+
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return None
 
     def getFans(self, bookID):
         try:
@@ -185,7 +197,7 @@ def main():
     mylist.append(author[0])
     mylist.append(image[0])
     #print(mylist)
-    print(data.getIntersections(5, 10000))
-
+    #print(data.getFanIntersections(5, 10000))
+    print(data.getBookList(7747))
 
 main()
