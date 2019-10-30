@@ -212,15 +212,7 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("bruelle", "spider268awesome")
-    bookTitle = data.getTitle(4)
-    author = data.getAuthor(4)
-    image = data.getImageURL(4)
-    mylist = []
-    mylist.append(bookTitle[0])
-    mylist.append(author[0])
-    mylist.append(image[0])
-    #print(mylist)
-    #print(data.getFanIntersections(5, 10000))
+    data.getFanIntersections(5, 100))
     #print(data.getBookList(7747))
     #print(data.getBookListIntersections(7747, 7717))
 
