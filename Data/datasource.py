@@ -147,7 +147,8 @@ class DataSource:
                 print("Error: insufficient data for this query")
                 return None
 
-            i++
+            i+=1
+
         return commonFans[0:2]
 
     def getBookList(self, userID):
