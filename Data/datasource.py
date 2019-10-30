@@ -178,6 +178,7 @@ class DataSource:
             cursor = self.connection.cursor()
             query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
+            print(cursor.fetchone())
             return cursor.fetchall()
 
 
