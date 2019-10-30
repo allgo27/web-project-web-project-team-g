@@ -132,18 +132,18 @@ class DataSource:
 
     def getFanIntersections(self, bookID1, bookID2):
         # Return intersection of fans of both books
-        book1Fans = set(self.getFans(bookID1))
-        book2Fans = set(self.getFans(bookID2))
-        commonFans = book2Fans.intersection(book1Fans)
-        print(book1Fans)
-        print(book2Fans)
+        book1Fans = self.getFans(bookID1)
+        book2Fans = self.getFans(bookID2)
+        book1FanSet = set(book1Fans)
+        book2FanSet = set(book2Fans)
+        commonFanSet = book2FanSet.intersection(book1FanSet)
         i = 0
         while len(commonFans) < 3:
             if len(book1Fans) > i:
-                commonFans.add(book1Fans[i])
+                commonFanSet.add(book1Fans[i])
 
             if len(book2Fans) > i:
-                commonFans.add(book2Fans[i])
+                commonFanSet.add(book2Fans[i])
 
             if i > 3:
                 print("Error: insufficient data for this query")
@@ -151,7 +151,7 @@ class DataSource:
 
             i+=1
 
-        return commonFans[0:2]
+        return commonFanSet
 
     def getBookList(self, userID):
         try:
@@ -165,11 +165,39 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
-    def getBookListIntersections(self, userID1, userID2):
+    def getBookListIntersections(self, fanSet):
         # Return intersection of fans of both books
-        user1Books = set(self.getBookList(userID1))
+        i = 0
+        bookDict = {}
+        for userID in fanSet:
+            if i > 100:
+                break
+
+            user1Books = self.getBookList(userID)
+            for book in user1Books:
+                if book in bookDict:
+                    bookDict[book] += 1
+                else:
+                    bookDict[book] = 1
+
+            i += 1
+        bookRecList = []
+        bookRecList[0] = max(bookDict, key=lambda key: bookDict[key])
+        bookDict.pop(bookRecList[0])
+        bookRecList[1] = max(bookDict, key=lambda key: bookDict[key])
+        bookDict.pop(bookRecList[1])
+        bookRecList[2] = max(bookDict, key=lambda key: bookDict[key])
+
+
+
+
+
+
+
+
+        '''user1Books = set(self.getBookList(userID1))
         user2Books = set(self.getBookList(userID2))
-        commonBooks = user1Books.intersection(user2Books)
+        commonBooks = user1Books.intersection(user2Books)'''
 
         return commonBooks
 
@@ -178,7 +206,6 @@ class DataSource:
             cursor = self.connection.cursor()
             query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
-            print(cursor.fetchone())
             return cursor.fetchall()
 
 
@@ -196,9 +223,9 @@ class DataSource:
         RETURN:
         a tuple of three database bookIDs
         '''
-        commonFans = self.getFanIntersections(bookID1, bookID2)
+        commonFanSet = self.getFanIntersections(bookID1, bookID2)
         #if there are none, what do we do?
-        commonBooks = self.getBookListIntersection(commonFans[0], commonFans[1])
+        commonBooks = self.getBookListIntersection(commonFanSet)
         #if there are none, what do we dooooo?
         if len(commonBooks) > 3:
             commonBooks = commonBooks[0:4]
