@@ -199,7 +199,7 @@ class DataSource:
         #if there are none, what do we dooooo?
         if len(commonBooks) > 3:
             commonBooks = commonBooks[0:4]
-        if len(commonBooks) = 0:
+        if len(commonBooks) == 0:
             print("Error no books for you")
             return None
         else:
