@@ -3,17 +3,17 @@ import unittest
 
 class MyTestCase(unittest.TestCase):
     def test_basic(self):
-        ds = Datasource()
+        ds = DataSource()
         booklist = getBookRecID(1,2)
         self.assertEqual(len(booklist), 3)
 
     def test_few_fans(self):
-        ds = Datasource()
+        ds = DataSource()
         booklist = getBookRecID(10001,30000)
         self.assertEqual(len(booklist), 3)
 
     def test_no_common_books(self):
-        ds = Datasource()
+        ds = DataSource()
         booklist = getBookRecID(10001, 30000)
         self.assertEqual(len(booklist), 3)
 
