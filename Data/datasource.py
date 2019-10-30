@@ -132,16 +132,18 @@ class DataSource:
 
     def getIntersections(self, bookID1, bookID2):
         # Return intersection of fans of both books
-        book1Fans = self.getFans(bookID1)
-        book2Fans = self.getFans(bookID2)
-        print("fans of book2: ", book2Fans)
+        book1Fans = set(self.getFans(bookID1))
+        book2Fans = set(self.getFans(bookID2))
+        commonFans = book2Fans.intersection(book1Fans)
+
+        return commonFans
 
     def getFans(self, bookID):
         try:
             cursor = self.connection.cursor()
             query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
-            print(cursor.fetchall())
+            return cursor.fetchall()
 
 
         except Exception as e:
@@ -183,7 +185,7 @@ def main():
     mylist.append(author[0])
     mylist.append(image[0])
     #print(mylist)
-    print(data.getFans(10000))
+    print(data.getIntersections(5, 10000))
 
 
 main()
