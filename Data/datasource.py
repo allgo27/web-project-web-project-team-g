@@ -207,5 +207,5 @@ def main():
     #print(mylist)
     #print(data.getFanIntersections(5, 10000))
     #print(data.getBookList(7747))
-    print(getBookListIntersections(self, 7747, 7717))
+    print(data.getBookListIntersections(self, 7747, 7717))
 main()
