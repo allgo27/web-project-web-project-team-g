@@ -135,7 +135,19 @@ class DataSource:
         book1Fans = set(self.getFans(bookID1))
         book2Fans = set(self.getFans(bookID2))
         commonFans = book2Fans.intersection(book1Fans)
+        i = 0
+        while len(commonFans) < 3:
+            if len(book1Fans) > i:
+                commonFans.add(book1Fans[i])
 
+            if len(book2Fans) > i:
+                commonFans.add(book2Fans[i])
+
+            if i > 3:
+                print("Error: insufficient data for this query")
+                return None
+
+            i++
         return commonFans[0:2]
 
     def getBookList(self, userID):
