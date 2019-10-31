@@ -172,11 +172,12 @@ class DataSource:
         i = 0
         bookDict = {}
         for userID in fanSet: #Iterate through fans
-            print("entered fanSet iteration")
             if i > 100:
+                
                 break
 
             user1Books = self.getBookList(userID)
+            print(user1Books)
             for book in user1Books:
                 len(bookDict)
                 if book == book1 or book == book2:
