@@ -175,17 +175,20 @@ class DataSource:
         '''
         i = 0
         while len(commonFanSet) < 3:
+            print("while loop for fans triggered")
             if len(book1Fans) > i:
                 commonFanSet.add(book1Fans[i])
 
             if len(book2Fans) > i:
                 commonFanSet.add(book2Fans[i])
 
-            if i > 3:
-                print("Error: insufficient data for this query")
-                return None
-
             i += 1
+
+        if i > 3:
+            print("Error: insufficient data for this query")
+            return None
+
+
 
         return commonFanSet
 
@@ -277,7 +280,7 @@ def main():
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
     bookDict = data.getBookListIntersections(fanset, 1, 2)
-    print(bookDict)
-    print(data.getTopBooks(bookDict, fanset))
+    # print(bookDict)
+    # print(data.getTopBooks(bookDict, fanset))
 
 main()
