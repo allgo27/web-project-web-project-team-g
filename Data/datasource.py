@@ -234,12 +234,6 @@ class DataSource:
 
         return bookDict
 
-        '''user1Books = set(self.getBookList(userID1))
-        user2Books = set(self.getBookList(userID2))
-        commonBooks = user1Books.intersection(user2Books)
-
-        return commonBooks'''
-
     def getTopBooks(self, bookDict, fanSet):
         # Returns list of top 3 books with highest value (ie number of relevant fans)
         # Finds max value using code modified from thewolf's suggestion on StackExchange
@@ -255,12 +249,6 @@ class DataSource:
         cursor.execute(query, (str(bookID),))
 
         return cursor.fetchall()
-
-    #        try:
-
-    #        except Exception as e:
-    #            print("Something went wrong when executing the query: ", e)
-    #            return None
 
     def getBookRecID(self, bookID1, bookID2):
         '''
