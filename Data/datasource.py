@@ -173,18 +173,19 @@ class DataSource:
         return commonFanSet
 
     def getBookListIntersections(self, fanSet, book1, book2):
-        # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and then for each of the first 100 fans (feel free to tweak the number) it adds every book they like to the dictionary bookDict, and every time a second person likes the book we increment its value by 1, so by the end the most well-liked books by this crowd will have the highest values. Then we'll use GetTopBooks to find the books with highest values and return their IDs.
+        # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and
+        # then for each of the first 100 fans (feel free to tweak the number) it adds
+        # every book they like to the dictionary bookDict, and every time a second person
+        # likes the book we increment its value by 1, so by the end the most well-liked books
+        # by this crowd will have the highest values. Then we'll use GetTopBooks to find the books
+        # with highest values and return their IDs.
         i = 0
         bookDict = {}
         for userID in fanSet:  # Iterate through fans
             if i > 100:
                 break
             # changed userID to userID[0]
-            # changed user1Books to userBooks
             userBooks = self.getBookList(userID[0])
-            # changed print(userID) to print(userBooks)
-            print(userBooks)
-            # changed user1Books to userBooks
             for book in userBooks:
                 if book == book1 or book == book2:
                     continue
@@ -195,7 +196,10 @@ class DataSource:
 
             i += 1
         j = 0
-        # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered, not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to have a book they like. (that's why we're getting index[0] is out of range errors, I think).
+        # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any
+        # books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered,
+        # not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to
+        # have a book they like. (that's why we're getting index[0] is out of range errors, I think).
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
