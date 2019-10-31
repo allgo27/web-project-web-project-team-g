@@ -172,6 +172,7 @@ class DataSource:
         i = 0
         bookDict = {}
         for userID in fanSet: #Iterate through fans
+            print("entered fanSet iteration")
             if i > 100:
                 break
 
