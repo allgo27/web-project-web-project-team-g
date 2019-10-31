@@ -147,8 +147,10 @@ class DataSource:
         book1Fans = self.getFans(bookID1)
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
+        print(book1FanSet)
         book2FanSet = set(book2Fans)
         commonFanSet = book2FanSet.intersection(book1FanSet)
+        print(commonFanSet)
         i = 0
         while len(commonFanSet) < 3:
             if len(book1Fans) > i:
@@ -221,7 +223,7 @@ class DataSource:
         cursor = self.connection.cursor()
         query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
         cursor.execute(query, (str(bookID),))
-        print(cursor.fetchall())
+   
         return cursor.fetchall()
 #        try:
 #            
