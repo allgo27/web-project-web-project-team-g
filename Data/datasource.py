@@ -194,8 +194,8 @@ class DataSource:
 
             i += 1
 
-        del bookDict[book1]
-        del bookDict[book2]
+        del bookDict[tuple(str(book1))]
+        del bookDict[tuple(str(book2))]
 
         j = 0
         # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any
