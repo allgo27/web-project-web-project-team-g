@@ -1,9 +1,6 @@
 import psycopg2
 import getpass
 
-
-# OKAY FRIENDS welcome to the new and (maybe?) improved version of our program!! it looks cool and might almost run (but hard to say because it definitely doesn't right now).
-
 class DataSource:
     '''
 	DataSource executes all of the queries on the database.
@@ -133,6 +130,15 @@ class DataSource:
             return None
 
     def getBookList(self, userID):
+        '''
+        Returns a list of book_ids from the ratings file for a particular user.
+
+        PARAMETERS:
+            userID - a user ID number for a given user
+        RETURN:
+            a list of books where each book is a tuple
+        '''
+
         try:
             cursor = self.connection.cursor()
             query = "SELECT book_id FROM ratings WHERE user_id=(%s);"
@@ -145,16 +151,27 @@ class DataSource:
             return None
 
     def getFanIntersections(self, bookID1, bookID2):
-        # Return intersection of fans of both books
+        '''
+        Returns a list of user_ids of users who rated bookID1 and bookID2 highly in the ratings file
+
+        PARAMETERS:
+            bookID1 - a database ID number for the first input book
+            bookID2 - a database ID number for the second input book
+        RETURN:
+            a list of user_ids
+        '''
+
         book1Fans = self.getFans(bookID1)
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
         book2FanSet = set(book2Fans)
         commonFanSet = book2FanSet.intersection(book1FanSet)
+
         '''
-        I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) 
-        should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans 
-        between the books (we can write a test case for that!)
+        if there are fewer than 3 fans, adds fans of book one to the common fan set.
+        if there are still fewer than 3 fans, it adds the fans of book two to the common fan set.
+        else, it returns an error stating that there is insufficient data (which will appear as a pop-up
+        for our users when we get to that stage)
         '''
         i = 0
         while len(commonFanSet) < 3:
@@ -173,6 +190,8 @@ class DataSource:
         return commonFanSet
 
     def getBookListIntersections(self, fanSet, book1, book2):
+
+
         # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and
         # then for each of the first 100 fans (feel free to tweak the number) it adds
         # every book they like to the dictionary bookDict, and every time a second person
