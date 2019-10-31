@@ -133,8 +133,8 @@ class DataSource:
     def getBookList(self, userID):
         try:
             cursor = self.connection.cursor()
-            query = "SELECT book_id FROM ratings WHERE user_id='1';" 
-            cursor.execute(query)
+            query = "SELECT book_id FROM ratings WHERE user_id=(%s);" 
+            cursor.execute(query, str(userID),)
             return cursor.fetchall()
 
 
@@ -246,7 +246,7 @@ class DataSource:
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
         #if there are none, what do we do?
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
-        topBooks = getTopBooks(bookDict, commonFanSet)
+        topBooks = self.getTopBooks(bookDict, commonFanSet)
 
         if len(topBooks) == 0:
             print("Error no books for you")
