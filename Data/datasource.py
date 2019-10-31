@@ -134,7 +134,7 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             query = "SELECT book_id FROM ratings WHERE user_id=" + str(userID) + ";" 
-            cursor.execute(query,)
+            cursor.execute(query)
             return cursor.fetchall()
 
 
