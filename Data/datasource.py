@@ -150,7 +150,7 @@ class DataSource:
         book2FanSet = set(book2Fans)
         commonFanSet = book2FanSet.intersection(book1FanSet)
         i = 0
-        while len(commonFans) < 3:
+        while len(commonFanSet) < 3:
             if len(book1Fans) > i:
                 commonFanSet.add(book1Fans[i])
 
