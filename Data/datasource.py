@@ -1,7 +1,8 @@
 import psycopg2
 import getpass
 
-#OKAY FRIENDS welcome to the new and (maybe?) improved version of our program!! it looks cool and might almost run (but hard to say because it definitely doesn't right now).
+
+# OKAY FRIENDS welcome to the new and (maybe?) improved version of our program!! it looks cool and might almost run (but hard to say because it definitely doesn't right now).
 
 class DataSource:
     '''
@@ -130,12 +131,12 @@ class DataSource:
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
             return None
-        
+
     def getBookList(self, userID):
         try:
             cursor = self.connection.cursor()
-            query = "SELECT book_id FROM ratings WHERE user_id=(%s);" 
-            cursor.execute(query, (str(userID),)) 
+            query = "SELECT book_id FROM ratings WHERE user_id=(%s);"
+            cursor.execute(query, (str(userID),))
             return cursor.fetchall()
 
 
@@ -149,7 +150,8 @@ class DataSource:
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
         book2FanSet = set(book2Fans)
-        commonFanSet = book2FanSet.intersection(book1FanSet) #I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans between the books (we can write a test case for that!)
+        commonFanSet = book2FanSet.intersection(
+            book1FanSet)  # I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans between the books (we can write a test case for that!)
         i = 0
         while len(commonFanSet) < 3:
             if len(book1Fans) > i:
@@ -162,24 +164,24 @@ class DataSource:
                 print("Error: insufficient data for this query")
                 return None
 
-            i+=1
+            i += 1
 
         return commonFanSet
-
-   
 
     def getBookListIntersections(self, fanSet, book1, book2):
         # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and then for each of the first 100 fans (feel free to tweak the number) it adds every book they like to the dictionary bookDict, and every time a second person likes the book we increment its value by 1, so by the end the most well-liked books by this crowd will have the highest values. Then we'll use GetTopBooks to find the books with highest values and return their IDs.
         i = 0
         bookDict = {}
-        for userID in fanSet: #Iterate through fans
+        for userID in fanSet:  # Iterate through fans
             if i > 100:
-                
                 break
-
-            user1Books = self.getBookList(userID)
-            print(userID)
-            for book in user1Books:
+            # changed userID to userID[0]
+            # changed user1Books to userBooks
+            userBooks = self.getBookList(userID[0])
+            # changed print(userID) to print(userBooks)
+            print(userBooks)
+            # changed user1Books to userBooks
+            for book in userBooks:
                 if book == book1 or book == book2:
                     continue
                 if book in bookDict:
@@ -188,17 +190,17 @@ class DataSource:
                     bookDict[book] = 1
 
             i += 1
-        j = 0    
-        #This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered, not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to have a book they like. (that's why we're getting index[0] is out of range errors, I think). 
+        j = 0
+        # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered, not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to have a book they like. (that's why we're getting index[0] is out of range errors, I think).
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
             randomBook = randomBookList[0]
             if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
-                bookDict[randomBook[-1]] = 1 
-                #This should hopefully add the last book 
-                #randomFan liked to the dictionary, so it's
-                #a semi random (but hopefully still useful) recommendation
+                bookDict[randomBook[-1]] = 1
+                # This should hopefully add the last book
+                # randomFan liked to the dictionary, so it's
+                # a semi random (but hopefully still useful) recommendation
             j += 1
 
         return bookDict
@@ -210,14 +212,12 @@ class DataSource:
         return commonBooks'''
 
     def getTopBooks(self, bookDict, fanSet):
-        #Returns list of top 3 books with highest value (ie number of relevant fans)
-        #Finds max value using code modified from thewolf's suggestion on StackExchange
+        # Returns list of top 3 books with highest value (ie number of relevant fans)
+        # Finds max value using code modified from thewolf's suggestion on StackExchange
         bookRecList = []
         for i in range(3):
             bookRecList[i] = max(bookDict, key=lambda key: bookDict[key])
             bookDict.pop(bookRecList[i])
-        
-
 
         return bookRecList
 
@@ -225,15 +225,14 @@ class DataSource:
         cursor = self.connection.cursor()
         query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
         cursor.execute(query, (str(bookID),))
-   
+
         return cursor.fetchall()
-#        try:
-#            
-#
-#
-#        except Exception as e:
-#            print("Something went wrong when executing the query: ", e)
-#            return None
+
+    #        try:
+
+    #        except Exception as e:
+    #            print("Something went wrong when executing the query: ", e)
+    #            return None
 
     def getBookRecID(self, bookID1, bookID2):
         '''
@@ -246,7 +245,7 @@ class DataSource:
         a tuple of three database bookIDs
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
-        #if there are none, what do we do?
+        # if there are none, what do we do?
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
         topBooks = self.getTopBooks(bookDict, commonFanSet)
 
@@ -261,7 +260,6 @@ def main():
     data = DataSource()
     data.connect("bruelle", "spider268awesome")
     data.getFanIntersections(1, 2)
-    
-    
+
 
 main()
