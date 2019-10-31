@@ -268,6 +268,7 @@ def main():
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
     bookDict = data.getBookListIntersections(fanset, 1, 2)
+    print(bookDict)
     print(data.getTopBooks(bookDict, fanset))
 
 main()
