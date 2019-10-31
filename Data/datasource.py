@@ -177,9 +177,8 @@ class DataSource:
                 break
 
             user1Books = self.getBookList(userID)
-            print(user1Books)
+            print(userID)
             for book in user1Books:
-                len(bookDict)
                 if book == book1 or book == book2:
                     continue
                 if book in bookDict:
