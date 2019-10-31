@@ -226,7 +226,6 @@ class DataSource:
         for i in range(3):
             bookRecList[i] = max(bookDict, key=lambda key: bookDict[key])
             bookDict.pop(bookRecList[i])
-
         return bookRecList
 
     def getFans(self, bookID):
@@ -269,6 +268,6 @@ def main():
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
     bookDict = data.getBookListIntersections(fanset, 1, 2)
-    getTopBooks(self, bookDict, fanset)
+    print(data.getTopBooks(self, bookDict, fanset))
 
 main()
