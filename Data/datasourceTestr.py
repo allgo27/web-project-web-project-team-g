@@ -20,7 +20,7 @@ class MyTestCase(unittest.TestCase):
        ds = DataSource()
        ds.connect("allgoodm", "cow254happy")
        booklist = ds.getBookRecID(10001, 30000)
-       self.assertEqual(len(booklist), 3)
+       self.assertEqual(booklist, None)
 
 if __name__ == '__main__':
     unittest.main()
