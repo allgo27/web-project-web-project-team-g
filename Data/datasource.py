@@ -224,7 +224,7 @@ class DataSource:
         # Finds max value using code modified from thewolf's suggestion on StackExchange
         bookRecList = []
         for i in range(3):
-            bookRecList[i] = max(bookDict, key=lambda key: bookDict[key])
+            bookRecList.append(max(bookDict, key=lambda key: bookDict[key]))
             bookDict.pop(bookRecList[i])
         return bookRecList
 
