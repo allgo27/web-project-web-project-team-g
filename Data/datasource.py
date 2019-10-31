@@ -178,6 +178,7 @@ class DataSource:
 
             user1Books = self.getBookList(userID)
             for book in user1Books:
+                len(bookDict)
                 if book == book1 or book == book2:
                     continue
                 if book in bookDict:
@@ -190,7 +191,7 @@ class DataSource:
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
-            randomBook = randomBookList[1]
+            randomBook = randomBookList[0]
             if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
                 bookDict[randomBook[-1]] = 1 
                 #This should hopefully add the last book 
