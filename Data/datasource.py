@@ -129,6 +129,18 @@ class DataSource:
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
             return None
+        
+    def getBookList(self, userID):
+        try:
+            cursor = self.connection.cursor()
+            query = "SELECT book_id FROM ratings WHERE user_id=(%s);"
+            cursor.execute(query, (str(userID),))
+            return cursor.fetchall()
+
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return None
 
     def getFanIntersections(self, bookID1, bookID2):
         # Return intersection of fans of both books
@@ -153,17 +165,7 @@ class DataSource:
 
         return commonFanSet
 
-    def getBookList(self, userID):
-        try:
-            cursor = self.connection.cursor()
-            query = "SELECT book_id FROM ratings WHERE user_id=(%s);"
-            cursor.execute(query, (str(userID),))
-            return cursor.fetchall()
-
-
-        except Exception as e:
-            print("Something went wrong when executing the query: ", e)
-            return None
+   
 
     def getBookListIntersections(self, fanSet, book1, book2):
         # Return intersection of fans of both books
@@ -183,35 +185,35 @@ class DataSource:
                     bookDict[book] = 1
 
             i += 1
+        j = 0    
+        while len(bookDict) < 3 and j < 100:
+            randomFan = fanSet.pop()
+            randomBookList = getBookList(randomFan)
+            randomBook = randomBookList[1]
+            if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
+                bookDict[randomBook[-1]] = 1 
+                #This should hopefully add the last book 
+                #randomFan liked to the dictionary, so it's
+                #a semi random (but hopefully still useful) recommendation
+            j += 1
 
         return bookDict
 
-
-
-
-
-
-
-
         '''user1Books = set(self.getBookList(userID1))
         user2Books = set(self.getBookList(userID2))
-        commonBooks = user1Books.intersection(user2Books)'''
+        commonBooks = user1Books.intersection(user2Books)
 
-        return commonBooks
+        return commonBooks'''
 
-    def getTopBooks(self, bookDict):
+    def getTopBooks(self, bookDict, fanSet):
         #Returns list of top 3 books with highest value (ie number of relevant fans)
         #Finds max value using code modified from thewolf's suggestion on StackExchange
         bookRecList = []
-        if len(bookDict) > 3:
-            bookRecList[0] = max(bookDict, key=lambda key: bookDict[key])
-            bookDict.pop(bookRecList[0])
-            bookRecList[1] = max(bookDict, key=lambda key: bookDict[key])
-            bookDict.pop(bookRecList[1])
-            bookRecList[2] = max(bookDict, key=lambda key: bookDict[key])
+        for i in range(3):
+            bookRecList[i] = max(bookDict, key=lambda key: bookDict[key])
+            bookDict.pop(bookRecList[i])
+        
 
-        else:
-            #add code here to get random books from a fan
 
         return bookRecList
 
@@ -253,8 +255,6 @@ def main():
     data = DataSource()
     data.connect("bruelle", "spider268awesome")
     data.getFanIntersections(5, 100)
-    #print(data.getBookList(7747))
-    #print(data.getBookListIntersections(7747, 7717))
-
+    
 
 main()
