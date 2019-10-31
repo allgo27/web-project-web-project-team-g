@@ -222,6 +222,7 @@ class DataSource:
             cursor = self.connection.cursor()
             query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
+            print(cursor.fetchall())
             return cursor.fetchall()
 
 
@@ -255,6 +256,7 @@ def main():
     data = DataSource()
     data.connect("bruelle", "spider268awesome")
     data.getFanIntersections(5, 100)
+    
     
 
 main()
