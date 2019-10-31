@@ -1,6 +1,7 @@
 import psycopg2
 import getpass
 
+#OKAY FRIENDS welcome to the new and (maybe?) improved version of our program!! it looks cool and might almost run (but hard to say because it definitely doesn't right now).
 
 class DataSource:
     '''
@@ -134,7 +135,7 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             query = "SELECT book_id FROM ratings WHERE user_id=(%s);" 
-            cursor.execute(query, str(userID,))
+            cursor.execute(query, (str(userID),)) #This doesn't seem to be working! 
             return cursor.fetchall()
 
 
