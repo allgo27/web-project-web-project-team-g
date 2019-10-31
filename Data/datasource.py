@@ -186,7 +186,6 @@ class DataSource:
                 break
             # changed userID to userID[0]
             userBooks = self.getBookList(userID[0])
-            print(userBooks)
             for book in userBooks:
                 if book == book1 or book == book2:
                     continue
@@ -202,7 +201,6 @@ class DataSource:
         # not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to
         # have a book they like. (that's why we're getting index[0] is out of range errors, I think).
         while len(bookDict) < 3 and j < 100:
-            print("this is bad")
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
             randomBook = randomBookList[0]
@@ -271,6 +269,6 @@ def main():
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
     bookDict = data.getBookListIntersections(fanset, 1, 2)
-    #getTopBooks(self, bookDict, fanset)
+    getTopBooks(self, bookDict, fanset)
 
 main()
