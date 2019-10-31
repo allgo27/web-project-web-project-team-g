@@ -187,14 +187,16 @@ class DataSource:
             # changed userID to userID[0]
             userBooks = self.getBookList(userID[0])
             for book in userBooks:
-                if book == book1 or book == book2:
-                    continue
                 if book in bookDict:
                     bookDict[book] += 1
                 else:
                     bookDict[book] = 1
 
             i += 1
+
+        del bookDict[book1]
+        del bookDict[book2]
+
         j = 0
         # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any
         # books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered,
