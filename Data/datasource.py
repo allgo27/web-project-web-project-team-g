@@ -135,7 +135,7 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             query = "SELECT book_id FROM ratings WHERE user_id=(%s);" 
-            cursor.execute(query, (str(userID),)) #This doesn't seem to be working! 
+            cursor.execute(query, (str(userID),)) 
             return cursor.fetchall()
 
 
@@ -149,7 +149,7 @@ class DataSource:
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
         book2FanSet = set(book2Fans)
-        commonFanSet = book2FanSet.intersection(book1FanSet)
+        commonFanSet = book2FanSet.intersection(book1FanSet) #I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans between the books (we can write a test case for that!)
         i = 0
         while len(commonFanSet) < 3:
             if len(book1Fans) > i:
@@ -169,7 +169,7 @@ class DataSource:
    
 
     def getBookListIntersections(self, fanSet, book1, book2):
-        # Return intersection of fans of both books
+        # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and then for each of the first 100 fans (feel free to tweak the number) it adds every book they like to the dictionary bookDict, and every time a second person likes the book we increment its value by 1, so by the end the most well-liked books by this crowd will have the highest values. Then we'll use GetTopBooks to find the books with highest values and return their IDs.
         i = 0
         bookDict = {}
         for userID in fanSet: #Iterate through fans
@@ -189,6 +189,7 @@ class DataSource:
 
             i += 1
         j = 0    
+        #This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered, not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to have a book they like. (that's why we're getting index[0] is out of range errors, I think). 
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
