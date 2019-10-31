@@ -195,20 +195,23 @@ class DataSource:
         return commonFanSet
 
     def getBookListIntersections(self, fanSet, book1, book2):
+        '''
+        Returns a dictionary of books with values corresponding to how many users in fanSet rated them highly
 
+        PARAMETERS:
+            fanSet - a list of user_ids of users who rated bookID1 and bookID2 highly in the ratings file
+            book1 - a database ID number for the first input book
+            book2 - a database ID number for the second input book
+        RETURN:
+            a dictionary of books with values corresponding to how many users in fanSet rated them highly
+        '''
 
-        # Okay so Liz and I majorly reworked this one, but basically it takes the set of fans, and
-        # then for each of the first 100 fans (feel free to tweak the number) it adds
-        # every book they like to the dictionary bookDict, and every time a second person
-        # likes the book we increment its value by 1, so by the end the most well-liked books
-        # by this crowd will have the highest values. Then we'll use GetTopBooks to find the books
-        # with highest values and return their IDs.
         i = 0
         bookDict = {}
-        for userID in fanSet:  # Iterate through fans
+        for userID in fanSet:
             if i > 100:
                 break
-            # changed userID to userID[0]
+
             userBooks = self.getBookList(userID[0])
             for book in userBooks:
                 if book in bookDict:
@@ -222,26 +225,28 @@ class DataSource:
         del bookDict[tuple(str(book2))]
 
         j = 0
-        # This while loop suxxxxxxxx meaning that it's supposed to only come up if none of our fans like any
-        # books except for the input books, which seems super unlikely. AND YET. It keeps getting triggered,
-        # not sure why, and then when we try to getBookList from the randomfan even randomfan doesn't seem to
-        # have a book they like. (that's why we're getting index[0] is out of range errors, I think).
+
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
             randomBookList = self.getBookList(randomFan)
             randomBook = randomBookList[0]
             if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
                 bookDict[randomBook[-1]] = 1
-                # This should hopefully add the last book
-                # randomFan liked to the dictionary, so it's
-                # a semi random (but hopefully still useful) recommendation
             j += 1
 
         return bookDict
 
     def getTopBooks(self, bookDict, fanSet):
-        # Returns list of top 3 books with highest value (ie number of relevant fans)
         # Finds max value using code modified from thewolf's suggestion on StackExchange
+        '''
+        Returns list of top 3 books with highest value (ie number of relevant fans)
+
+        PARAMETERS:
+            bookDict - a dictionary of books with values corresponding to how many users in fanSet rated them highly
+            fanSet - a list of user_ids of users who rated bookID1 and bookID2 highly in the ratings file
+        RETURN:
+            a list of top 3 books with highest value (ie number of relevant fans)
+        '''
         bookRecList = []
         for i in range(3):
             bookRecList.append(max(bookDict, key=lambda key: bookDict[key]))
@@ -249,6 +254,15 @@ class DataSource:
         return bookRecList
 
     def getFans(self, bookID):
+        '''
+        Returns a list of user_ids of users who highly rated a particular book
+
+        PARAMETERS:
+            bookID - the database ID number for the book
+        RETURN:
+            a list of user_ids of users who highly rated a particular book
+        '''
+
         cursor = self.connection.cursor()
         query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
         cursor.execute(query, (str(bookID),))
@@ -263,7 +277,7 @@ class DataSource:
             bookID2 - the second book to base recommendation off of
 
         RETURN:
-        a tuple of three database bookIDs
+            a tuple of three database bookIDs
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
         if commonFanSet == None:
