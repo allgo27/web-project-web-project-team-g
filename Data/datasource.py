@@ -264,6 +264,6 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
-    print(data.getBookListIntersections(self, fanset, 1, 2))
+    print(data.getBookListIntersections(fanset, 1, 2))
 
 main()
