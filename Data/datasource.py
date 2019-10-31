@@ -178,15 +178,17 @@ class DataSource:
             print("while loop for fans triggered")
             if len(book1Fans) > i:
                 commonFanSet.add(book1Fans[i])
+                print(commonFanSet)
 
             if len(book2Fans) > i:
                 commonFanSet.add(book2Fans[i])
+                print(commonFanSet)
 
+            if i > 3:
+                print("Error: insufficient data for this query")
+                print(commonFanSet)
+                return None
             i += 1
-
-        if i > 3:
-            print("Error: insufficient data for this query")
-            return None
 
 
 
