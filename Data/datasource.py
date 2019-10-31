@@ -218,12 +218,13 @@ class DataSource:
         return bookRecList
 
     def getFans(self, bookID):
+        cursor = self.connection.cursor()
+        query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
+        cursor.execute(query, (str(bookID),))
+        print(cursor.fetchall())
+        return cursor.fetchall()
         try:
-            cursor = self.connection.cursor()
-            query = "SELECT user_id FROM ratings WHERE book_id=(%s);"
-            cursor.execute(query, (str(bookID),))
-            print(cursor.fetchall())
-            return cursor.fetchall()
+            
 
 
         except Exception as e:
