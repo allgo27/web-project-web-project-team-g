@@ -243,7 +243,7 @@ class DataSource:
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
         #if there are none, what do we do?
-        bookDict = self.getBookListIntersection(commonFanSet, bookID1, bookID2)
+        bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
         topBooks = getTopBooks(bookDict, commonFanSet)
 
         if len(topBooks) == 0:
