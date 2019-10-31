@@ -186,6 +186,7 @@ class DataSource:
                 break
             # changed userID to userID[0]
             userBooks = self.getBookList(userID[0])
+            print(userBooks)
             for book in userBooks:
                 if book == book1 or book == book2:
                     continue
@@ -268,6 +269,6 @@ def main():
     data = DataSource()
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
-    print(data.getBookListIntersections(fanset, 1, 2))
+    data.getBookListIntersections(fanset, 1, 2)
 
 main()
