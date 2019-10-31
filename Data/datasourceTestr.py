@@ -12,11 +12,13 @@ class MyTestCase(unittest.TestCase):
 
     def test_few_fans(self):
        ds = DataSource()
+       ds.connect("allgoodm", "cow254happy")
        booklist = ds.getBookRecID(10001,30000)
        self.assertEqual(len(booklist), 3)
 
     def test_no_common_books(self):
        ds = DataSource()
+       ds.connect("allgoodm", "cow254happy")
        booklist = ds.getBookRecID(10001, 30000)
        self.assertEqual(len(booklist), 3)
 
