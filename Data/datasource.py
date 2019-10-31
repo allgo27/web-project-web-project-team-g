@@ -150,8 +150,12 @@ class DataSource:
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
         book2FanSet = set(book2Fans)
-        commonFanSet = book2FanSet.intersection(
-            book1FanSet)  # I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans between the books (we can write a test case for that!)
+        commonFanSet = book2FanSet.intersection(book1FanSet)
+        '''
+        I tried printing and this works! There should be a pretty big commonFanSet, meaning len(commonFanSet) 
+        should rarely enter the while loop below, which will add fans of 1 book if we don't have at least 3 common fans 
+        between the books (we can write a test case for that!)
+        '''
         i = 0
         while len(commonFanSet) < 3:
             if len(book1Fans) > i:
@@ -259,7 +263,7 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("allgoodm", "cow254happy")
-    data.getFanIntersections(1, 2)
-
+    fanset = data.getFanIntersections(1, 2)
+    print(getBookListIntersections(self, fanset, 1, 2))
 
 main()
