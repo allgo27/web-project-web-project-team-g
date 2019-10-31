@@ -223,13 +223,13 @@ class DataSource:
         cursor.execute(query, (str(bookID),))
         print(cursor.fetchall())
         return cursor.fetchall()
-        try:
-            
-
-
-        except Exception as e:
-            print("Something went wrong when executing the query: ", e)
-            return None
+#        try:
+#            
+#
+#
+#        except Exception as e:
+#            print("Something went wrong when executing the query: ", e)
+#            return None
 
     def getBookRecID(self, bookID1, bookID2):
         '''
