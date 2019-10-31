@@ -5,6 +5,7 @@ from datasource import *
 class MyTestCase(unittest.TestCase):
     def test_basic(self):
         ds = DataSource()
+        ds.connect()
         booklist = ds.getBookRecID(1,2)
         self.assertEqual(len(booklist), 3)
 

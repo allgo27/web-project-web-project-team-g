@@ -256,7 +256,7 @@ class DataSource:
 def main():
     data = DataSource()
     data.connect("bruelle", "spider268awesome")
-    data.getFanIntersections(5, 100)
+    data.getFanIntersections(1, 2)
     
     
 
