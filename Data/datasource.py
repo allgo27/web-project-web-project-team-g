@@ -147,7 +147,6 @@ class DataSource:
         book1Fans = self.getFans(bookID1)
         book2Fans = self.getFans(bookID2)
         book1FanSet = set(book1Fans)
-        print(book1FanSet)
         book2FanSet = set(book2Fans)
         commonFanSet = book2FanSet.intersection(book1FanSet)
         print(commonFanSet)
@@ -190,7 +189,7 @@ class DataSource:
         j = 0    
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
-            randomBookList = getBookList(randomFan)
+            randomBookList = self.getBookList(randomFan)
             randomBook = randomBookList[1]
             if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
                 bookDict[randomBook[-1]] = 1 
