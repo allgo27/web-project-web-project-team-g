@@ -149,7 +149,6 @@ class DataSource:
         book1FanSet = set(book1Fans)
         book2FanSet = set(book2Fans)
         commonFanSet = book2FanSet.intersection(book1FanSet)
-        print(commonFanSet)
         i = 0
         while len(commonFanSet) < 3:
             if len(book1Fans) > i:
