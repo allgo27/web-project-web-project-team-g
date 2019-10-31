@@ -133,7 +133,7 @@ class DataSource:
     def getBookList(self, userID):
         try:
             cursor = self.connection.cursor()
-            query = "SELECT book_id FROM ratings WHERE user_id=1;" 
+            query = "SELECT book_id FROM ratings WHERE user_id='1';" 
             cursor.execute(query)
             return cursor.fetchall()
 
