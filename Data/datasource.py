@@ -173,25 +173,17 @@ class DataSource:
         else, it returns an error stating that there is insufficient data (which will appear as a pop-up
         for our users when we get to that stage)
         '''
-        print("1 ", len(book1Fans))
-        print("2 ", len(book2Fans))
 
         i = 0
         while len(commonFanSet) < 3:
-            print("while loop for fans triggered")
             if len(book1Fans) > i:
-                print("book1 ", book1Fans[i])
                 commonFanSet.add(book1Fans[i])
-                print("book 1 ", commonFanSet)
 
             if len(book2Fans) > i:
-                print("book2 ", book2Fans[i])
                 commonFanSet.add(book2Fans[i])
-                print("book 2" , commonFanSet)
 
             if i > 1:
                 print("Error: insufficient data for this query")
-                print("error ", commonFanSet)
                 return None
             i += 1
 
@@ -303,6 +295,10 @@ def main():
     data.connect("allgoodm", "cow254happy")
     fanset = data.getFanIntersections(1, 2)
     bookDict = data.getBookListIntersections(fanset, 1, 2)
+    print("get fans returns --> ", data.getFans('hp7'))
+    print("get fan intersections returns --> ", data.getFanIntersections('hp7', 'lightning'))
+    #print("get top books --> ", data.getTopBooks('bookDict'))
+    # print(data.getBookRecID(1, 2))
     # print(bookDict)
     # print(data.getTopBooks(bookDict, fanset))
 
