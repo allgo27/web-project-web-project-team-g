@@ -234,7 +234,7 @@ class DataSource:
 
         return bookDict
 
-    def getTopBooks(self, bookDict, fanSet):
+    def getTopBooks(self, bookDict):
         # Finds max value using code modified from thewolf's suggestion on StackExchange
         '''
         Returns list of top 3 books with highest value (ie number of relevant fans)
@@ -281,7 +281,7 @@ class DataSource:
         if commonFanSet == None:
             return None
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
-        topBooks = self.getTopBooks(bookDict, commonFanSet)
+        topBooks = self.getTopBooks(bookDict)
 
         if len(topBooks) == 0:
             print("Error no books for you")
@@ -300,6 +300,6 @@ def main():
     #print("get top books --> ", data.getTopBooks('bookDict'))
     # print(data.getBookRecID(1, 2))
     # print(bookDict)
-    # print(data.getTopBooks(bookDict, fanset))
+    # print(data.getTopBooks(bookDict))
 
 main()
