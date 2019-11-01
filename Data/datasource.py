@@ -291,15 +291,5 @@ class DataSource:
 
 
 def main():
-    data = DataSource()
-    data.connect("allgoodm", "cow254happy")
-    fanset = data.getFanIntersections(1, 2)
-    bookDict = data.getBookListIntersections(fanset, 1, 2)
-    # print("get fans returns --> ", data.getFans('hp7'))
-    # print("get fan intersections returns --> ", data.getFanIntersections('hp7', 'lightning'))
-    #print("get top books --> ", data.getTopBooks('bookDict'))
-    # print(data.getBookRecID(1, 2))
-    print(bookDict)
-    print(data.getTopBooks(bookDict))
-
+    pass
 main()

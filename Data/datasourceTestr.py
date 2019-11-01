@@ -19,7 +19,7 @@ class MyTestCase(unittest.TestCase):
     def test_no_common_books(self):
        ds = DataSource()
        ds.connect("allgoodm", "cow254happy")
-       booklist = ds.getBookRecID(10001, 30000)
+       booklist = ds.getBookRecID(10002, 10006)
        self.assertEqual(booklist, None)
 
 if __name__ == '__main__':
