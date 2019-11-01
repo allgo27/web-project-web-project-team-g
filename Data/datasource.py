@@ -173,6 +173,9 @@ class DataSource:
         else, it returns an error stating that there is insufficient data (which will appear as a pop-up
         for our users when we get to that stage)
         '''
+        print("1 ", len(book1Fans))
+        print("2 ", len(book2Fans))
+
         i = 0
         while len(commonFanSet) < 3:
             print("while loop for fans triggered")
