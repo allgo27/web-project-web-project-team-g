@@ -177,10 +177,12 @@ class DataSource:
         while len(commonFanSet) < 3:
             print("while loop for fans triggered")
             if len(book1Fans) > i:
+                print("book1 ", book1Fans[i])
                 commonFanSet.add(book1Fans[i])
                 print("book 1 ", commonFanSet)
 
             if len(book2Fans) > i:
+                print("book2 ", book2Fans[i])
                 commonFanSet.add(book2Fans[i])
                 print("book 2" , commonFanSet)
 
