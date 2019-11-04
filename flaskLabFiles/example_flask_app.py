@@ -57,7 +57,7 @@ def fruitImg():
     
 @app.route('/cornucopiaImg/')
 def cornucopiaImg():
-	return render_template('cornucopia.html')
+	return render_template('cornucopiaImg.html')
 
 @app.route('/authors/<author>')
 def get_author(author):
