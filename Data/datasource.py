@@ -223,14 +223,22 @@ class DataSource:
             del bookDict[tuple(str(book2))]
 
         j = 0
-
-        while len(bookDict) < 3 and j < 100:
-            randomFan = fanSet.pop()
-            randomBookList = self.getBookList(randomFan[0])
-            randomBook = randomBookList[0]
-            if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
-                bookDict[randomBook[-1]] = 1
-            j += 1
+        print(fanSet)
+        #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
+        booksNeeded = 3 - len(bookDict)
+        if booksNeeded > 0:
+            while len(fanSet) != 0:
+                randomFan = fanSet.pop()
+                randomBookList = self.getBookList(randomFan[0])
+                if len(randomBookList) >= booksNeeded:
+                    for i in range(booksNeeded):
+                        randomBook = randomBookList[i]
+                        if randomBook != book1 and randomBook != book2:
+                            bookDict[randomBookList[i]] = 1
+                    break
+            if len(bookDict) < 3:
+                print("Error: insufficient data. Please try again with new books.")
+                return None
 
         return bookDict
 
