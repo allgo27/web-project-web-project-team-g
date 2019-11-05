@@ -291,5 +291,6 @@ class DataSource:
 
 
 def main():
-    print(getBookRecID("bk1", "bk10001"))
+    db = DataSource()
+    print(db.getBookRecID("bk1", "bk10001"))
 main()
