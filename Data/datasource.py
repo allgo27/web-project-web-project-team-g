@@ -226,7 +226,7 @@ class DataSource:
 
         while len(bookDict) < 3 and j < 100:
             randomFan = fanSet.pop()
-            randomBookList = self.getBookList(randomFan)
+            randomBookList = self.getBookList(randomFan[0])
             randomBook = randomBookList[0]
             if randomBook != book1 and randomBook != book2 and not randomBook in bookDict:
                 bookDict[randomBook[-1]] = 1
