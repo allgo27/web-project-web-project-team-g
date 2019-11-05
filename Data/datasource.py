@@ -278,6 +278,7 @@ class DataSource:
             a tuple of three database bookIDs
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
+        print("fanset is: ", commonFanSet)
         if commonFanSet == None:
             return None
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
