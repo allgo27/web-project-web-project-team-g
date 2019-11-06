@@ -302,5 +302,4 @@ class DataSource:
 def main():
     db = DataSource()
     db.connect("allgoodm", "cow245happy")
-    print(db.getBookRecID("bk1", "bk10001"))
 main()
