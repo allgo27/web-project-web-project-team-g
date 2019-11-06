@@ -223,7 +223,7 @@ class DataSource:
             del bookDict[tuple(str(book2))]
 
         j = 0
-        print(fanSet)
+
         #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
         booksNeeded = 3 - len(bookDict)
         if booksNeeded > 0:
@@ -286,7 +286,7 @@ class DataSource:
             a tuple of three database bookIDs
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
-        print("fanset is: ", commonFanSet)
+
         if commonFanSet == None:
             return None
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
