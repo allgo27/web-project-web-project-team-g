@@ -28,6 +28,13 @@ class DataSource:
 
         return
 
+    def getPossibleBooks(self, title):
+        '''
+        returns all possible authors for a given book title
+        :param title:
+        :return:
+        '''
+
     def getBookID(self, title, author):
         '''
         Returns the database "book_id" number for specified title by specified author
@@ -224,7 +231,11 @@ class DataSource:
 
         j = 0
 
+<<<<<<< HEAD:Data/datasource.py
+       #If bookDict lacks sufficient books, add one fan's liked books to bookDict until it has enough.
+=======
         #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
+>>>>>>> 07e39fd290c6b7fddc3f4fb8ab39339ab68abc52:backend/Data/datasource.py
         booksNeeded = 3 - len(bookDict)
         if booksNeeded > 0:
             while len(fanSet) != 0:
@@ -238,6 +249,7 @@ class DataSource:
                     break
             if len(bookDict) < 3:
                 print("Error: insufficient data. Please try again with new books.")
+                #We don't have enough information to generate results; rather than returning None we will figure out how to convey this information to the user
                 return None
 
         return bookDict
@@ -300,6 +312,8 @@ class DataSource:
 
 
 def main():
-    db = DataSource()
-    db.connect("allgoodm", "cow245happy")
+    pass
+
+db = DataSource()
+db.connect("allgoodm", "cow245happy")
 main()
