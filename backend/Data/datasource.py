@@ -231,7 +231,11 @@ class DataSource:
 
         j = 0
 
+<<<<<<< HEAD:Data/datasource.py
        #If bookDict lacks sufficient books, add one fan's liked books to bookDict until it has enough.
+=======
+        #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
+>>>>>>> 07e39fd290c6b7fddc3f4fb8ab39339ab68abc52:backend/Data/datasource.py
         booksNeeded = 3 - len(bookDict)
         if booksNeeded > 0:
             while len(fanSet) != 0:
@@ -294,7 +298,7 @@ class DataSource:
             a tuple of three database bookIDs
         '''
         commonFanSet = self.getFanIntersections(bookID1, bookID2)
-        print("fanset is: ", commonFanSet)
+
         if commonFanSet == None:
             return None
         bookDict = self.getBookListIntersections(commonFanSet, bookID1, bookID2)
@@ -308,5 +312,10 @@ class DataSource:
 
 
 def main():
+<<<<<<< HEAD:Data/datasource.py
     pass
+=======
+    db = DataSource()
+    db.connect("allgoodm", "cow245happy")
+>>>>>>> 07e39fd290c6b7fddc3f4fb8ab39339ab68abc52:backend/Data/datasource.py
 main()
