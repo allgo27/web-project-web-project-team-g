@@ -231,11 +231,9 @@ class DataSource:
 
         j = 0
 
-<<<<<<< HEAD:Data/datasource.py
+
        #If bookDict lacks sufficient books, add one fan's liked books to bookDict until it has enough.
-=======
         #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
->>>>>>> 07e39fd290c6b7fddc3f4fb8ab39339ab68abc52:backend/Data/datasource.py
         booksNeeded = 3 - len(bookDict)
         if booksNeeded > 0:
             while len(fanSet) != 0:
@@ -312,10 +310,8 @@ class DataSource:
 
 
 def main():
-<<<<<<< HEAD:Data/datasource.py
     pass
-=======
-    db = DataSource()
-    db.connect("allgoodm", "cow245happy")
->>>>>>> 07e39fd290c6b7fddc3f4fb8ab39339ab68abc52:backend/Data/datasource.py
+
+db = DataSource()
+db.connect("allgoodm", "cow245happy")
 main()
