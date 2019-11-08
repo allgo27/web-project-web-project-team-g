@@ -44,8 +44,8 @@ def greet(person):
 def fruit():
     myFruit = [
         {'name': 'apple', 'rating': 7},
-        {'name': 'banana', 'rating': 5},
-        {'name': 'pear', 'rating': 4}
+        {'name': 'pineapple', 'rating': 6},
+        {'name': 'guava', 'rating': 2}
     ]
 
     return render_template('fruit.html',
