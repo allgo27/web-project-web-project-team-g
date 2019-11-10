@@ -109,6 +109,10 @@ div.aboutcontent{
     
 }
 
+div.whichbooks{
+    margin-left: 45px;
+}
+
 table {
     background: rgba(255, 255, 255, 0.4);
     width: 55%;
