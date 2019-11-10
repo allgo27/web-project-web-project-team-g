@@ -4,7 +4,7 @@
     <!--link to css file!-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     <head>
-        <title>Your Recommendations</title>
+        <title>Select your books</title>
     </head>
     <body class="nothome">
         <div class=tabs>
@@ -14,11 +14,11 @@
         </div>
         <h1>WeeeRead</h1>
         <h2>Find your next favorite books</h2>
-        <h3 class="pagetitle">Here's your shelf of recommendations: </h3>
+        <h3 class="pagetitle">Please select the books of your hearts desire: </h3>
         <form>
             <div class="findbooks">
               <!-- how many checkboxes do we make? How do we make multiple? How do we get our information into our checkbox names? -->
-            <p> Which books did you mean? </p>
+            <p>   </p>
 
               {% for book in books %}
                   <tr><td><i>{{ book.title }}</i></td>, by <td>{{ book.author }}</td></tr><br>
