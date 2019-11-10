@@ -311,7 +311,7 @@ class DataSource:
 
 def main():
     db = DataSource()
-    db.connect("allgoodm", "cow245happy")
+    db.connect("yime2", "tablet389cow")
 
 if __name__ == "__main__":
     main()
