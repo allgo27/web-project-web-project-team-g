@@ -11,7 +11,7 @@ db.connect("allgoodm", "cow245happy")
 
 @app.route('/')
 def homePage():
-    return render_template('homepage.html')
+    return render_template('WRhomepage.html')
 
 
 @app.route('/midresults')
