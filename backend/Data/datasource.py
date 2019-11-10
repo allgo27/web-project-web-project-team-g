@@ -310,8 +310,9 @@ class DataSource:
 
 
 def main():
-    pass
+    db = DataSource()
+    db.connect("allgoodm", "cow245happy")
 
-db = DataSource()
-db.connect("allgoodm", "cow245happy")
-main()
+if __name__ == "__main__":
+    main()
+    

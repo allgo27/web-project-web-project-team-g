@@ -2,12 +2,20 @@ import flask
 from flask import render_template
 import json
 import sys
+from datasource import DataSource
 
 app = flask.Flask(__name__)
+#we added this from datasource because maybe you can merge things or maybe we're frankensteining?
+db = DataSource()
+db.connect("allgoodm", "cow245happy")
+
+@app.route('/')
+def homePage():
+    return render_template('homepage.html')
 
 
 @app.route('/midresults')
-def books():
+def midresultsBooks():
     potentialBooks = [
         {'title': 'apple', 'author': 'orangutan'},
         {'title': 'banana', 'author': 'jim'},
