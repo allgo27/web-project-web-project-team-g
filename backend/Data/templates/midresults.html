@@ -21,7 +21,7 @@
             <p> Which books did you mean? </p>
 
               {% for book in books %}
-                  <tr><td>{{ book.title }}</td>, by <td>{{ book.author }}</td></tr><br>
+                  <tr><td><i>{{ book.title }}</i></td>, by <td>{{ book.author }}</td></tr><br>
                   <input type="checkbox" name="optionOne"><br>
               {% endfor %}
                 <div class="shelf">
