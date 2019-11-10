@@ -9,9 +9,9 @@ app = flask.Flask(__name__)
 @app.route('/midresults')
 def books():
     potentialBooks = [
-        {'book': 'apple', 'author': 'orangutan'},
-        {'book': 'banana', 'author': 'jim'},
-        {'book': 'pear', 'author': 'terry'}
+        {'title': 'apple', 'author': 'orangutan'},
+        {'title': 'banana', 'author': 'jim'},
+        {'title': 'pear', 'author': 'terry'}
     ]
 
     return render_template('midresults.html',
