@@ -1,0 +1,41 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>WeeeRead</title>
+      <link rel="stylesheet" href="softwaredesign.css">
+    </head>
+    
+    <body>
+        
+        <div class=tabs>
+            <a href="homepage.html" class="urhere">&#9758 Home</a>
+            <a href="data.html"> About the data</a>
+        </div>
+        <h1>WeeeRead</h1>
+        <h2> <i> Find your next favorite books </i> </h2>  
+        <div class="content">
+            <section>
+
+                <p>Enter the titles of one or more favorite books, then click "see my shelf" to view your customized bookshelf of recommendations based on the books liked by people with similar tastes! For best results enter three books in order of preference.</p>
+                <form>
+                    <div class="findbooks">
+                        Favorite book:<br>
+                        <input type="text" name="firstbook"><br>
+                        Another favorite book:<br>
+                        <input type="text" name="secondbook"><br>
+                        Another favorite book:<br>
+                        <input type="text" name="thirdbook"><br>
+                        <input type="checkbox" name="filterOption1" value="noexplicit"> Exclude adult content<br>
+                        <input type="checkbox" name="filterOption2" value="limitgenre"> Only show content from one of these genres<br>
+
+                        <div class="shelf">
+                            <input type="submit" value="See my shelf"> 
+                        </div>  
+                    </div>
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
