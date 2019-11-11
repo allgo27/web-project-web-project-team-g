@@ -34,6 +34,16 @@ class DataSource:
         :param title:
         :return:
         '''
+        try:
+            cursor = self.connection.cursor()
+            title = str(title)
+            query = "SELECT authors FROM books WHERE title=(%s);"
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchall()
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return
 
     def getBookID(self, title, author):
         '''
@@ -311,8 +321,7 @@ class DataSource:
 
 def main():
     db = DataSource()
-    db.connect("yime2", "tablet389cow")
-    
+    db.connect("allgoodm", "cow245happy")
 
 if __name__ == "__main__":
     main()

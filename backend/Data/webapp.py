@@ -11,13 +11,16 @@ db.connect("allgoodm", "cow245happy")
 
 @app.route('/')
 def homePage():
+    
     return render_template('WRhomepage.html')
 
 
 @app.route('/midresults')
 def midresultsBooks():
+    firstbook = request.args.get('firstbook')
+    secondbook = request.args.get('secondbook')
     potentialBooks = [
-        {'title': 'apple', 'author': 'orangutan'},
+        {'title': 'apple', 'author': 'orangutan', 'optionNum':i},
         {'title': 'banana', 'author': 'jim'},
         {'title': 'pear', 'author': 'terry'}
     ]
@@ -25,7 +28,8 @@ def midresultsBooks():
     return render_template('midresults.html',
                            books=potentialBooks)
 
-if __name__ == '__main__':
+
+def main:
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
         exit()
@@ -33,5 +37,4 @@ if __name__ == '__main__':
     host = sys.argv[1]
     port = sys.argv[2]
     app.run(host=host, port=port)
-
     
