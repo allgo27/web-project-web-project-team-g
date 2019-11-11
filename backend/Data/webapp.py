@@ -43,7 +43,7 @@ def midresultsBooks():
         i += 1
         
 #    potentialBooks = [
-#        {'title': 'apple', 'author': 'orangutan', 'optionNum':i},
+#        {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
 #        {'title': 'banana', 'author': 'jim'},
 #        {'title': 'pear', 'author': 'terry'}
 #    ]
