@@ -11,9 +11,9 @@ db.connect("yime2", "tablet389cow")
 
 @app.route('/')
 def homePage():
-    
+    print("can we even print?")
     return render_template('WRhomepage.html')
-
+    
 
 @app.route('/midresults')
 def midresultsBooks():
