@@ -17,12 +17,14 @@ def homePage():
 
 @app.route('/midresults')
 def midresultsBooks():
-    firstbook = request.args.get('firstbook')
-    secondbook = request.args.get('secondbook')
-    firstBookAuthors = db.getPossibleAuthors(firstbook)
-    print(firstBookAuthors)
-    secondBookAuthors = db.getPossibleAuthors(secondbook)
-    print(secondBookAuthors)
+    result = request.form
+    print(result)
+#    firstbook = request.args.get('firstbook')
+#    secondbook = request.args.get('secondbook')
+#    firstBookAuthors = db.getPossibleAuthors(firstbook)
+#    print(firstBookAuthors)
+#    secondBookAuthors = db.getPossibleAuthors(secondbook)
+#    print(secondBookAuthors)
     potentialBooks = [
         {'title': 'apple', 'author': 'orangutan', 'optionNum':i},
         {'title': 'banana', 'author': 'jim'},
