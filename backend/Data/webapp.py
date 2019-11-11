@@ -29,7 +29,7 @@ def midresultsBooks():
                            books=potentialBooks)
 
 
-def main:
+def main():
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
         exit()
