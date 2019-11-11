@@ -28,7 +28,7 @@ class DataSource:
 
         return
 
-    def getPossibleBooks(self, title):
+    def getPossibleAuthors(self, title):
         '''
         returns all possible authors for a given book title
         :param title:
