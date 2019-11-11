@@ -23,7 +23,7 @@
 
               {% for book in books %}
                   <tr><td><i>{{ book.title }}</i></td>, by <td>{{ book.author }}</td></tr><br>
-                  <input type="checkbox" name="optionOne"><br>
+                  <input type="checkbox" name=book.optionNum><br>
               {% endfor %}
                 <div class="shelf">
                     <input type="submit" value="See my shelf">
