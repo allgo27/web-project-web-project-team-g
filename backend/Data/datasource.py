@@ -41,9 +41,9 @@ class DataSource:
             cursor.execute(query, (str(title),))
             return cursor.fetchall()
 
-        except Exception as e:
-            print("Something went wrong when executing the query: ", e)
-            return
+#        except Exception as e:
+#            print("Something went wrong when executing the query: ", e)
+#            return
 
     def getBookID(self, title, author):
         '''
