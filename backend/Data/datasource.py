@@ -34,12 +34,12 @@ class DataSource:
         :param title:
         :return:
         '''
-        try:
-            cursor = self.connection.cursor()
-            print(title)
-            query = "SELECT authors FROM books WHERE title = (%s);" #this keeps returning an empty list 
-            cursor.execute(query, (str(title),))
-            return cursor.fetchall()
+        #try:
+        cursor = self.connection.cursor()
+        print(title)
+        query = "SELECT authors FROM books WHERE title = (%s);" #this keeps returning an empty list 
+        cursor.execute(query, (str(title),))
+        return cursor.fetchall()
 
 #        except Exception as e:
 #            print("Something went wrong when executing the query: ", e)
