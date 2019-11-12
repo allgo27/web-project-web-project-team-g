@@ -37,7 +37,7 @@ class DataSource:
         #try:
         cursor = self.connection.cursor()
         print(title)
-        query = "SELECT authors FROM books WHERE title = (%s);" #this keeps returning an empty list 
+        query = "SELECT authors FROM books WHERE title=(%s);" #this keeps returning an empty list 
         cursor.execute(query, (str(title),))
         return cursor.fetchall()
 
@@ -98,7 +98,6 @@ class DataSource:
 
         try:
             cursor = self.connection.cursor()
-            book = str(bookID)
             query = "SELECT image_url FROM books WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
@@ -117,7 +116,6 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            book = str(bookID)
             query = "SELECT authors FROM books WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
