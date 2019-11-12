@@ -323,6 +323,7 @@ def main():
     db = DataSource()
     db.connect("yime2", "tablet389cow")
     print(db.getPossibleAuthors('The Idiot'))
+    print(db.getImageURL('1'))
 
 if __name__ == "__main__":
     main()
