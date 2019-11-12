@@ -17,8 +17,12 @@ def homePage():
 
 @app.route('/midresults')
 def midresultsBooks():
-    firstbook = request.args.get('firstbook')
-    secondbook = request.args.get('secondbook')
+    firstBook = request.args.get('firstbook')
+    secondBook = request.args.get('secondbook')
+    firstPossible = getPossibleBooks(firstBook)
+    secondPossible = getPossibleBooks(secondBook)
+
+    
     potentialBooks = [
         {'title': 'apple', 'author': 'orangutan', 'optionNum':i},
         {'title': 'banana', 'author': 'jim'},
@@ -28,6 +32,15 @@ def midresultsBooks():
     return render_template('midresults.html',
                            books=potentialBooks)
 
+#Taken from Amy's slack as an example
+@app.route('/resultletter', methods = ['POST', 'GET'])
+def resultLetter():
+    if request.method == 'POST':
+        result = request.form
+        ds = datasource.DataSource()
+        description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
+        result = ds.getLetter(result.get("Letter"))
+        return render_template('result.html', result = result, description = description)
 
 def main:
     if len(sys.argv) != 3:
