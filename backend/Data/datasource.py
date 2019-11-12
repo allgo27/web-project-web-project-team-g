@@ -38,7 +38,7 @@ class DataSource:
             cursor = self.connection.cursor()
             title = str(title)
             query = "SELECT authors FROM books WHERE title=(%s);"
-            cursor.execute(query, (str(bookID),))
+            cursor.execute(query, (str(title),))
             return cursor.fetchall()
 
         except Exception as e:
