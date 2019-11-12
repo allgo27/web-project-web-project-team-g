@@ -28,22 +28,22 @@ class DataSource:
 
         return
 
-    def getPossibleAuthors(self, title):
+    def getPossibleAuthors(self, title): #this is being called in webapp.py but it does not work so webapp.py will not work
         '''
         returns all possible authors for a given book title
         :param title:
         :return:
         '''
-        #try:
-        cursor = self.connection.cursor()
-        print(title)
-        query = "SELECT authors FROM books WHERE title=(%s);" #this keeps returning an empty list 
-        cursor.execute(query, (str(title),))
-        return cursor.fetchall()
+        try:
+            cursor = self.connection.cursor()
+            print(title)
+            query = "SELECT authors FROM books WHERE title=(%s);" #this keeps returning an empty list 
+            cursor.execute(query, (str(title),))
+            return cursor.fetchall()
 
-#        except Exception as e:
-#            print("Something went wrong when executing the query: ", e)
-#            return
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return
 
     def getBookID(self, title, author):
         '''
@@ -320,9 +320,8 @@ class DataSource:
 def main():
     db = DataSource()
     db.connect("yime2", "tablet389cow")
-    print(db.getPossibleAuthors('The Idiot'))
-    print(db.getAuthor('1'))
-
+    print(db.getPossibleAuthors('The Idiot')) #this is printing an empty set
+    
 if __name__ == "__main__":
     main()
     

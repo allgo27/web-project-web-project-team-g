@@ -15,17 +15,16 @@ def homePage():
     return render_template('WRhomepage.html')
     
 
-@app.route('/midresults/', methods=['POST','GET'])
+@app.route('/midresults/', methods=['POST','GET']) #added the methods=... part with Andy
 def midresultsBooks():
-    if request.method == 'POST':
+    if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
     
-        print('hello')
         result = request.form
         firstbook = result['firstbook']
         secondbook = result['secondbook']
     #    firstbook = request.args.get('firstbook')
     #    secondbook = request.args.get('secondbook')
-        firstBookAuthors = db.getPossibleAuthors(firstbook)
+        firstBookAuthors = db.getPossibleAuthors(firstbook) #getPossibleAuthors does not work
     #    secondBookAuthors = db.getPossibleAuthors(secondbook)
     #    potentialBooks = list ()
     #    i = 0
@@ -53,7 +52,7 @@ def midresultsBooks():
     #    ]
 
         return render_template('midresults.html',
-                               books=firstBookAuthors)
+                               books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
 
 
 def main():
