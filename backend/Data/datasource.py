@@ -28,7 +28,7 @@ class DataSource:
 
         return
 
-    def getPossibleBooks(self, title):
+    def getPossibleAuthors(self, title):
         '''
         returns all possible authors for a given book title
         :param title:
@@ -322,7 +322,7 @@ class DataSource:
 def main():
     db = DataSource()
     db.connect("allgoodm", "cow245happy")
-    print(getPossibleBooks("The Hunger Games"))
+    print(getPossibleAuthors("The Hunger Games"))
 
 if __name__ == "__main__":
     main()
