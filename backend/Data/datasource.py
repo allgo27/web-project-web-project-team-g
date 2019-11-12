@@ -36,9 +36,8 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            title = str(title)
             print(title)
-            query = "SELECT * FROM books WHERE title = %s;"
+            query = "SELECT authors FROM books WHERE title = (%s);" #this keeps returning an empty list 
             cursor.execute(query, (str(title),))
             return cursor.fetchall()
 
