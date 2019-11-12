@@ -38,7 +38,8 @@ class DataSource:
             cursor = self.connection.cursor()
             title = str(title)
             print(title)
-            query = "SELECT * FROM books WHERE title=(%s);"
+            query = "SELECT * FROM books" 
+            #WHERE title=(%s);"
             cursor.execute(query, (str(title),))
             return cursor.fetchall()
 
