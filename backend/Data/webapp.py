@@ -15,8 +15,9 @@ def homePage():
     return render_template('WRhomepage.html')
     
 
-@app.route('/midresults')
+@app.route('/midresults', methods=['POST','GET'])
 def midresultsBooks():
+    print('hello')
     result = request.form
     firstbook = result['firstbook']
     secondbook = result['secondbook']
@@ -42,6 +43,7 @@ def midresultsBooks():
         potentialBooks.append(optionDict)
         i += 1
         
+    
 #    potentialBooks = [
 #        {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
 #        {'title': 'banana', 'author': 'jim'},
