@@ -22,34 +22,35 @@ def midresultsBooks():
         result = request.form
         firstbook = result['firstbook']
         secondbook = result['secondbook']
+        
     #    firstbook = request.args.get('firstbook')
     #    secondbook = request.args.get('secondbook')
-        firstBookAuthors = db.getPossibleAuthors(firstbook) #getPossibleAuthors does not work
-    #    secondBookAuthors = db.getPossibleAuthors(secondbook)
-    #    potentialBooks = list ()
-    #    i = 0
-    #    for author in firstBookAuthors:
-    #        optionDict = {}
-    #        optionDict['title'] = firstbook
-    #        optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
-    #        optionDict['optionNum'] = 'option'+str(i)
-    #        potentialBooks.append(optionDict)
-    #        i += 1
-    #        
-    #    for author in secondBookAuthors:
-    #        optionDict = {}
-    #        optionDict['title'] = secondbook
-    #        optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
-    #        optionDict['optionNum'] = 'option'+str(i)
-    #        potentialBooks.append(optionDict)
-    #        i += 1
-
-    #    potentialBooks = [
-    #        {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
-    #        {'title': 'banana', 'author': 'jim'},
-    #        {'title': 'pear', 'author': 'terry'}
-    #    ]
-
+#        firstBookAuthors = db.getPossibleAuthors(firstbook) #getPossibleAuthors does not work
+#        secondBookAuthors = db.getPossibleAuthors(secondbook)
+#        potentialBooks = list ()
+#        i = 0
+#        for author in firstBookAuthors:
+#            optionDict = {}
+#            optionDict['title'] = firstbook
+#            optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
+#            optionDict['optionNum'] = 'option'+str(i)
+#            potentialBooks.append(optionDict)
+#            i += 1
+#            
+#        for author in secondBookAuthors:
+#            optionDict = {}
+#            optionDict['title'] = secondbook
+#            optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
+#            optionDict['optionNum'] = 'option'+str(i)
+#            potentialBooks.append(optionDict)
+#            i += 1
+#
+#        potentialBooks = [
+#            {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
+#            {'title': 'banana', 'author': 'jim'},
+#            {'title': 'pear', 'author': 'terry'}
+#        ]
+        potentialBooks = makeTesterList()
         return render_template('midresults.html',
                                books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
 

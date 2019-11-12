@@ -317,7 +317,14 @@ class DataSource:
             return None
         else:
             return topBooks
-
+def makeTesterList():
+    lst = list()
+    dict = {}
+    dict['title'] = 'The Huner Games'
+    dict['author'] = 'Suzanne Collins'
+    dict['optionNum'] = 'option0'
+    lst.append(dict)
+    return lst
 
 def main():
     db = DataSource()
