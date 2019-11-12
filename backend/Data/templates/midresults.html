@@ -15,15 +15,29 @@
         <h1>WeeeRead</h1>
         <h2>Find your next favorite books</h2>
         <h3 class="pagetitle">Please select the books of your hearts desire: </h3>
-        <form>
+        
+        
+        
+        <form action="/midresults.html">
+                    <div class="findbooks">
+                        <label for="name">Favorite book:</label>
+                        <input type="text" name="firstbook"><br><br>
+                        <label for="name">Another favorite book:</label>
+                        <input type="text" name="secondbook"><br>
+                        <div class="shelf">
+                            <input type="submit" value="See my shelf"> 
+        
+        
+        
+        <form action="/results.html">
             <div class="findbooks">
               <!-- We would love to make this form be 45 pixels further to the right pls -->
             <br>
             <br>
 
               {% for book in books %}
-                  <tr><td><i>{{ book.title }}</i></td>, by <td>{{ book.author }}</td></tr><br>
-                  <input type="checkbox" name="optionOne"><br>
+                  <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
+                  <input type="checkbox" name=book.optionNum><br>
               {% endfor %}
                 <div class="shelf">
                     <input type="submit" value="See my shelf">

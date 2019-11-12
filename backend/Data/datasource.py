@@ -28,7 +28,7 @@ class DataSource:
 
         return
 
-    def getPossibleBooks(self, title):
+    def getPossibleAuthors(self, title): #this is being called in webapp.py but it does not work so webapp.py will not work
         '''
         returns all possible authors for a given book title
         :param title:
@@ -36,9 +36,15 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
+<<<<<<< HEAD
             title = str(title)
             query = "SELECT authors FROM books WHERE title=(%s);"
             cursor.execute(query, (str(bookID),))
+=======
+            print(title)
+            query = "SELECT authors FROM books WHERE title=(%s);" #this keeps returning an empty list 
+            cursor.execute(query, (str(title),))
+>>>>>>> f81a9a17d10e5a75a11a6550c01cb6dd9dafd535
             return cursor.fetchall()
 
         except Exception as e:
@@ -98,7 +104,6 @@ class DataSource:
 
         try:
             cursor = self.connection.cursor()
-            book = str(bookID)
             query = "SELECT image_url FROM books WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
@@ -117,7 +122,6 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            book = str(bookID)
             query = "SELECT authors FROM books WHERE book_id=(%s);"
             cursor.execute(query, (str(bookID),))
             return cursor.fetchone()
@@ -321,9 +325,15 @@ class DataSource:
 
 def main():
     db = DataSource()
+<<<<<<< HEAD
     db.connect("allgoodm", "cow245happy")
     print(getPossibleBooks("The Hunger Games"))
 
+=======
+    db.connect("yime2", "tablet389cow")
+    print(db.getPossibleAuthors('The Idiot')) #this is printing an empty set
+    
+>>>>>>> f81a9a17d10e5a75a11a6550c01cb6dd9dafd535
 if __name__ == "__main__":
     main()
     

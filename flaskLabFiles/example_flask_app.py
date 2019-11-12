@@ -43,9 +43,9 @@ def greet(person):
 @app.route('/fruit')
 def fruit():
     myFruit = [
-        {'name': 'apple', 'rating': 7},
-        {'name': 'pineapple', 'rating': 6},
-        {'name': 'guava', 'rating': 2}
+        {'name': 'apple', 'rating': 7, 'bleh': 1},
+        {'name': 'pineapple', 'rating': 6, 'bleh': 3},
+        {'name': 'guava', 'rating': 2, 'bleh': 8}
     ]
 
     return render_template('fruit.html',
