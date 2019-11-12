@@ -322,7 +322,7 @@ class DataSource:
 def main():
     db = DataSource()
     db.connect("yime2", "tablet389cow")
-    
+    print(db.getPossibleAuthors('Lost'))
 
 if __name__ == "__main__":
     main()
