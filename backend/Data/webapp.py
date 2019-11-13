@@ -20,6 +20,14 @@ def homePage():
 #    return render_template('midresults.html')
     
 
+    
+@app.route('/data')
+def data():
+    
+    return render_template('data.html')
+
+
+
 @app.route('/fruit')
 def fruit():
     myFruit = [
@@ -32,7 +40,7 @@ def fruit():
                            fruits=myFruit)
 
 
-@app.route('/midresults', methods=['POST','GET']) #added the methods=... part with Andy
+@app.route('/midresults/', methods=['POST','GET']) #added the methods=... part with Andy
 def midresults():
     if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
     
@@ -49,7 +57,7 @@ def midresults():
         for author in firstBookAuthors:
             optionDict = {}
             optionDict['title'] = firstbook
-            optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
+            optionDict['author'] = author[0] 
             optionDict['optionNum'] = 'option'+str(i)
             potentialBooks.append(optionDict)
             i += 1
