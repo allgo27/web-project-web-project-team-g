@@ -76,7 +76,7 @@ def midresults():
             {'title': 'pear', 'author': 'terry'}
         ]
         #potentialBooks = makeTesterList()
-        return render_template('midresults.html',
+        return render_template('http://perlman.mathcs.carleton.edu:5103/midresults.html',
                                books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
 
 
