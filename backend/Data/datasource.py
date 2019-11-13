@@ -343,7 +343,7 @@ def makeTesterList():
 def main():
     db = DataSource()
     db.connect("bruelle", "spider268awesome")
-    print(db.getPossibleAuthors("The Hunger Games"))
+    print(db.getPossibleAuthors("The Hunger Games")[0][0])
 
 if __name__ == "__main__":
     main()
