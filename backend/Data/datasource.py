@@ -38,14 +38,16 @@ class DataSource:
             cursor = self.connection.cursor()
             title = (str(title))
             title = title.lower()
+            print(title)
             query = "SELECT authors FROM books WHERE lower(title)=(%s);"
             cursor.execute(query, (str(title),))
             results = cursor.fetchall()
             if len(results) == 0:
                 title = title + ' (%'
+                print(title)
                 query = "SELECT authors FROM books WHERE title=(%s);"
                 cursor.execute(query, (str(title),))
-            results = cursor.fetchall()
+                results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
         
