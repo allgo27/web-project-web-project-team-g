@@ -22,7 +22,7 @@ def homePage():
 
     
 @app.route('/fakehomepage')
-def data():
+def fakehomepage():
     
     return render_template('fakehomepage.html')
 
