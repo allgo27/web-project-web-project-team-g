@@ -21,10 +21,10 @@ def homePage():
     
 
     
-@app.route('/fakehomepage')
-def fakehomepage():
-    
-    return render_template('fakehomepage.html')
+# @app.route('/fakehomepage')
+# def fakehomepage():
+#     
+#     return render_template('fakehomepage.html')
 
 @app.route('/data')
 def data():
