@@ -14,10 +14,7 @@ def homePage():
     
     return render_template('WRhomepage.html')
     
-@app.route('/midresults')    
-def midResults():
-    
-    return render_template('midresults.html')
+
 @app.route('/fruit')
 def fruit():
     myFruit = [
