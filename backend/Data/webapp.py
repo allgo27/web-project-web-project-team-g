@@ -6,8 +6,8 @@ from datasource import DataSource
 
 app = flask.Flask(__name__)
 db = DataSource()
-db.connect("yime2", "tablet389cow")
-#db.connect("bruelle", "spider268awesome")
+#db.connect("yime2", "tablet389cow")
+db.connect("bruelle", "spider268awesome")
 #db.connect("allgoodm", "cow245happy")
 
 @app.route('/')
