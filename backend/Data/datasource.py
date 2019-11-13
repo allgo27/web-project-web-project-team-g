@@ -22,7 +22,7 @@ class DataSource:
         '''
         try:
 
-            self.connection = psycopg2.connect(host='localhost', database=user, user=user, password=password)
+            self.connection = psycopg2.connect(database=user, user=user, password=password)
         except Exception as e:
             print("Connection error: ", e)
             exit()
@@ -340,8 +340,8 @@ def makeTesterList():
 
 def main():
     db = DataSource()
-    db.connect("bruelle", "spider268awesome")
-    #db.connect("yime2", "tablet389cow")
+    #db.connect("bruelle", "spider268awesome")
+    db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
     print(db.getPossibleAuthors("The Hunger Games")[0][0])
 
