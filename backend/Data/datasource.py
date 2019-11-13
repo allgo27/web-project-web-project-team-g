@@ -52,7 +52,8 @@ class DataSource:
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
-        
+            else: 
+                return results
 
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
