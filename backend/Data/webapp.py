@@ -18,7 +18,7 @@ def homePage():
 
 @app.route('/midresults')
 def midresults():
-    return render_templates('midresults.html')
+    return render_template('midresults.html')
     
 
 @app.route('/fruit')
