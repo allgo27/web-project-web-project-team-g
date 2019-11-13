@@ -21,11 +21,15 @@ def homePage():
     
 
     
+@app.route('/fakehomepage')
+def data():
+    
+    return render_template('fakehomepage.html')
+
 @app.route('/data')
 def data():
     
     return render_template('data.html')
-
 
 
 @app.route('/fruit')
