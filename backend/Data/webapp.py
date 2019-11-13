@@ -7,7 +7,7 @@ from datasource import DataSource
 app = flask.Flask(__name__)
 #we added this from datasource because maybe you can merge things or maybe we're frankensteining?
 db = DataSource()
-db.connect("allgoodm", "cow245happy")
+db.connect("yime2", "tablet389cow")
 
 @app.route('/')
 def homePage():
