@@ -36,10 +36,19 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            title = str(title)
-            query = "SELECT authors FROM books WHERE title=(%s);"
+            title = (str(title))
+            title = title.lower()
+            query = "SELECT authors FROM books WHERE lower(title)=(%s);"
             cursor.execute(query, (str(title),))
-            return cursor.fetchall()
+            results = cursor.fetchall()
+            if len(results) == 0:
+                title = title + ' (%'
+                query = "SELECT authors FROM books WHERE title=(%s);"
+                cursor.execute(query, (str(title),))
+            results = cursor.fetchall()
+            if len(results) == 0:
+                print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
+        
 
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
@@ -328,7 +337,7 @@ def makeTesterList():
 
 def main():
     db = DataSource()
-    db.connect("allgoodm", "cow245happy")
+    db.connect("bruelle", "spider268awesome")
     print(db.getPossibleAuthors("The Hunger Games"))
 
 if __name__ == "__main__":
