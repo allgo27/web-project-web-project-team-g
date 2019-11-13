@@ -38,7 +38,7 @@ def midresults():
     
         result = request.form
         firstbook = result['firstbook']
-        secondbook = result['secondbook']
+        secondbook = result['secondbook'] 
         
     #    firstbook = request.args.get('firstbook')
     #    secondbook = request.args.get('secondbook')
