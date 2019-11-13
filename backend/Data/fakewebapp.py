@@ -46,7 +46,7 @@ def homePage():
             {'title': 'banana', 'author': 'jim'},
             {'title': 'pear', 'author': 'terry'}
         ]
-        return redirect(url_for('midresults'))
+        return redirect(url_for('midresults'), potentialBooks)
         #potentialBooks = makeTesterList()
     return render_template('WRhomepage.html')
 
