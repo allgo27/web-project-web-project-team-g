@@ -5,7 +5,6 @@ import sys
 from datasource import DataSource
 
 app = flask.Flask(__name__)
-#we added this from datasource because maybe you can merge things or maybe we're frankensteining?
 db = DataSource()
 #db.connect("yime2", "tablet389cow")
 db.connect("bruelle", "spider268awesome")
@@ -16,9 +15,9 @@ def homePage():
     
     return render_template('WRhomepage.html')
 
-@app.route('/midresults')
-def midresults():
-    return render_template('midresults.html')
+#@app.route('/midresults')
+#def midresults():
+#    return render_template('midresults.html')
     
 
 @app.route('/fruit')
@@ -34,12 +33,12 @@ def fruit():
 
 
 @app.route('/midresults', methods=['POST','GET']) #added the methods=... part with Andy
-def midresultsBooks():
+def midresults():
     if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
     
-#        result = request.form
-#        firstbook = result['firstbook']
-#        secondbook = result['secondbook']
+        result = request.form
+        firstbook = result['firstbook']
+        secondbook = result['secondbook']
         
     #    firstbook = request.args.get('firstbook')
     #    secondbook = request.args.get('secondbook')
