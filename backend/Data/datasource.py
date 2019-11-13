@@ -38,20 +38,17 @@ class DataSource:
             cursor = self.connection.cursor()
             title = (str(title))
             title = title.lower()
-            print(title)
             query = "SELECT authors FROM books WHERE lower(title)=(%s);"
             cursor.execute(query, (str(title),))
             results = cursor.fetchall()
             if len(results) == 0:
                 title = title + ' (%'
-                print(title)
                 query = "SELECT authors FROM books WHERE lower(title) LIKE %s;"
-                cursor.execute(query, (str(title),))
-#                query = "SELECT authors FROM books WHERE lower(title) LIKE 'twilight (%';"
-#                cursor.execute(query)
+                cursor.execute(query, (str(title),))                
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
+                exit()
             else: 
                 return results
 
@@ -343,6 +340,8 @@ def makeTesterList():
 def main():
     db = DataSource()
     db.connect("bruelle", "spider268awesome")
+    #db.connect("yime2", "tablet389cow")
+    #db.connect("allgoodm", "cow245happy")
     print(db.getPossibleAuthors("The Hunger Games")[0][0])
 
 if __name__ == "__main__":
