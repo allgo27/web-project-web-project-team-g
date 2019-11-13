@@ -38,14 +38,14 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             title = (str(title))
-            title = title.lower()
+            titleq = title.lower()
             query = "SELECT authors FROM books WHERE lower(title)=(%s);"
-            cursor.execute(query, (str(title),))
+            cursor.execute(query, (str(titleq),))
             results = cursor.fetchall()
             if len(results) == 0:
-                title = title + ' (%'
+                titleq = titleq + ' (%'
                 query = "SELECT authors FROM books WHERE lower(title) LIKE %s;"
-                cursor.execute(query, (str(title),))                
+                cursor.execute(query, (str(titleq),))                
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
