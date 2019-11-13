@@ -45,8 +45,10 @@ class DataSource:
             if len(results) == 0:
                 title = title + ' (%'
                 print(title)
-                query = "SELECT authors FROM books WHERE lower(title) LIKE %s;"
-                cursor.execute(query, (str(title),))
+#                query = "SELECT authors FROM books WHERE lower(title) LIKE %s;"
+#                cursor.execute(query, (str(title),))
+                query = "SELECT authors FROM books WHERE lower(title) LIKE 'twilight (%';"
+                cursor.execute(query)
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
