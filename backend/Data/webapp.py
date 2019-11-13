@@ -15,6 +15,10 @@ db.connect("bruelle", "spider268awesome")
 def homePage():
     
     return render_template('WRhomepage.html')
+
+@app.route('/midresults')
+def midresults():
+    return render_templates('midresults.html')
     
 
 @app.route('/fruit')
