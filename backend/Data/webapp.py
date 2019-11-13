@@ -29,7 +29,7 @@ def fruit():
 
 @app.route('/midresults.html?firstbook=Lost&secondbook=The+Host', methods=['POST','GET']) #added the methods=... part with Andy
 def midresultsBooks():
-    if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
+    #if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
     
 #        result = request.form
 #        firstbook = result['firstbook']
