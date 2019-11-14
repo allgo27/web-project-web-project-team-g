@@ -13,6 +13,41 @@ db.connect("bruelle", "spider268awesome")
 
 @app.route('/')
 def homePage():
+    
+        #potentialBooks = makeTesterList()
+    return render_template('WRhomepage.html')
+
+#@app.route('/midresults')
+#def midresults():
+#    return render_template('midresults.html')
+    
+
+    
+@app.route('/fakehomepage')
+def fakehomepage():
+    
+    return render_template('fakehomepage.html')
+
+@app.route('/data')
+def data():
+    
+    return render_template('data.html')
+
+
+@app.route('/fruit')
+def fruit():
+    myFruit = [
+        {'name': 'apple', 'rating': 7, 'bleh': 1},
+        {'name': 'pineapple', 'rating': 6, 'bleh': 3},
+        {'name': 'guava', 'rating': 2, 'bleh': 8}
+    ]
+
+    return render_template('fruit.html',
+                           fruits=myFruit)
+
+
+@app.route('/midresults', methods=['POST','GET']) #added the methods=... part with Andy
+def midresults():
     if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
     
         result = request.form
@@ -47,41 +82,6 @@ def homePage():
             {'title': 'pear', 'author': 'terry'}
         ]
         return redirect('http://perlman.mathcs.carleton.edu:5103/midresults.html', potentialBooks)
-        #potentialBooks = makeTesterList()
-    return render_template('WRhomepage.html')
-
-#@app.route('/midresults')
-#def midresults():
-#    return render_template('midresults.html')
-    
-
-    
-@app.route('/fakehomepage')
-def fakehomepage():
-    
-    return render_template('fakehomepage.html')
-
-@app.route('/data')
-def data():
-    
-    return render_template('data.html')
-
-
-@app.route('/fruit')
-def fruit():
-    myFruit = [
-        {'name': 'apple', 'rating': 7, 'bleh': 1},
-        {'name': 'pineapple', 'rating': 6, 'bleh': 3},
-        {'name': 'guava', 'rating': 2, 'bleh': 8}
-    ]
-
-    return render_template('fruit.html',
-                           fruits=myFruit)
-
-
-@app.route('/midresults/', methods=['POST','GET']) #added the methods=... part with Andy
-def midresults():
-    
         return render_template('http://perlman.mathcs.carleton.edu:5103/midresults.html',
                                books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
 
