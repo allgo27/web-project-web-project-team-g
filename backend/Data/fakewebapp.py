@@ -82,7 +82,7 @@ def midresults():
 #            {'title': 'pear', 'author': 'terry'}
 #        ]
             
-        return render_template('http://perlman.mathcs.carleton.edu:5103/midresults.html',
+        return render_template('midresults.html',
                                books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
 
 
