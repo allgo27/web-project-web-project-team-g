@@ -22,28 +22,12 @@ def homePage():
 #    return render_template('midresults.html')
     
 
-    
-@app.route('/fakehomepage')
-def fakehomepage():
-    
-    return render_template('fakehomepage.html')
+
 
 @app.route('/data')
 def data():
     
     return render_template('data.html')
-
-
-@app.route('/fruit')
-def fruit():
-    myFruit = [
-        {'name': 'apple', 'rating': 7, 'bleh': 1},
-        {'name': 'pineapple', 'rating': 6, 'bleh': 3},
-        {'name': 'guava', 'rating': 2, 'bleh': 8}
-    ]
-
-    return render_template('fruit.html',
-                           fruits=myFruit)
 
 
 @app.route('/midresults', methods=['POST','GET']) #added the methods=... part with Andy
