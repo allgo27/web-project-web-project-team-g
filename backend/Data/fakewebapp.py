@@ -76,11 +76,11 @@ def midresults():
             potentialBooks.append(optionDict)
             i += 1
 
-        potentialBooks = [
-            {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
-            {'title': 'banana', 'author': 'jim'},
-            {'title': 'pear', 'author': 'terry'}
-        ]
+#        potentialBooks = [
+#            {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
+#            {'title': 'banana', 'author': 'jim'},
+#            {'title': 'pear', 'author': 'terry'}
+#        ]
         return redirect('http://perlman.mathcs.carleton.edu:5103/midresults.html', potentialBooks)
         return render_template('http://perlman.mathcs.carleton.edu:5103/midresults.html',
                                books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
