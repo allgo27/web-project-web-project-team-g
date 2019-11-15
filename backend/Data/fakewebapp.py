@@ -37,7 +37,7 @@ def midresults():
         if len(firstBookAuthors) == 0:
             return render_template('newsearch.html', book=firstbook)
         
-        if len(secondbookAuthors) == 0:
+        if len(secondBookAuthors) == 0:
             return render_template('newsearch.html', book=secondbook)
         
         potentialBooks = list ()
