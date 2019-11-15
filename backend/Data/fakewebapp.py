@@ -14,13 +14,7 @@ db.connect("bruelle", "spider268awesome")
 @app.route('/')
 def homePage():
     
-        #potentialBooks = makeTesterList()
     return render_template('WRhomepage.html')
-
-#@app.route('/midresults')
-#def midresults():
-#    return render_template('midresults.html')
-    
 
 
 
@@ -30,18 +24,22 @@ def data():
     return render_template('data.html')
 
 
-@app.route('/midresults', methods=['POST','GET']) #added the methods=... part with Andy
+@app.route('/midresults', methods=['POST','GET']) 
 def midresults():
-    if request.method == 'POST': #added the 'POST' and if statement. This code is from his flask app that I have in email. We can look at this for help.
+    if request.method == 'POST': 
     
         result = request.form
         firstbook = result['firstbook']
         secondbook = result['secondbook'] 
         
-    #    firstbook = request.args.get('firstbook')
-    #    secondbook = request.args.get('secondbook')
-        firstBookAuthors = db.getPossibleAuthors(firstbook) #getPossibleAuthors does not work
+        firstBookAuthors = db.getPossibleAuthors(firstbook) 
         secondBookAuthors = db.getPossibleAuthors(secondbook)
+        if len(firstBookAuthors) == 0:
+            return render_template('newsearch.html', book=firstbook)
+        
+        if len(secondbookAuthors) == 0:
+            return render_template('newsearch.html', book=secondbook)
+        
         potentialBooks = list ()
         i = 0
         for author in firstBookAuthors:
@@ -55,19 +53,14 @@ def midresults():
         for author in secondBookAuthors:
             optionDict = {}
             optionDict['title'] = secondbook
-            optionDict['author'] = author[0] #if we're having problems indexing out of range you don't actually need the [0] but I'm pretty sure we do
+            optionDict['author'] = author[0] 
             optionDict['optionNum'] = 'option'+str(i)
             potentialBooks.append(optionDict)
             i += 1
 
-#        potentialBooks = [
-#            {'title': 'apple', 'author': 'orangutan', 'optionNum':option0},
-#            {'title': 'banana', 'author': 'jim'},
-#            {'title': 'pear', 'author': 'terry'}
-#        ]
             
         return render_template('midresults.html',
-                               books=potentialBooks) #changed from potentialBooks to firstBookAuthors but 
+                               books=potentialBooks) 
 
 
 def main():
