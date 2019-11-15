@@ -49,7 +49,7 @@ class DataSource:
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
-                exit()
+                return None
             else: 
                 return results
 
