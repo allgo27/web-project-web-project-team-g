@@ -24,6 +24,8 @@ def data():
     return render_template('data.html')
 
 
+@app.route('/newsearch',)
+
 @app.route('/midresults', methods=['POST','GET']) 
 def midresults():
     if request.method == 'POST': 
@@ -34,11 +36,13 @@ def midresults():
         
         firstBookAuthors = db.getPossibleAuthors(firstbook) 
         secondBookAuthors = db.getPossibleAuthors(secondbook)
-        if len(firstBookAuthors) == 0:
-            return render_template('newsearch.html', book=firstbook)
-        
-        if len(secondBookAuthors) == 0:
-            return render_template('newsearch.html', book=secondbook)
+#       Currently the site crashes when we enter a book not in the database. The following is our general plan for 
+#       what to do in this case, but it's not currently functional. 
+#       if len(firstBookAuthors) == 0:
+#            return render_template('newsearch.html', book=firstbook)
+#        
+#        if len(secondBookAuthors) == 0:
+#            return render_template('newsearch.html', book=secondbook)
         
         potentialBooks = list ()
         i = 0
