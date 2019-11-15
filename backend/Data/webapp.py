@@ -38,11 +38,11 @@ def midresults():
         secondBookAuthors = db.getPossibleAuthors(secondbook)
 #       Currently the site crashes when we enter a book not in the database. The following is our general plan for 
 #       what to do in this case, but it's not currently functional. 
-        if len(firstBookAuthors) == 0:
+        if firstBookAuthors == None:
             print("no first book if triggered")
             return render_template('newsearch.html', book=firstbook)
 
-        if len(secondBookAuthors) == 0:
+        if secondBookAuthors == None:
             return render_template('newsearch.html', book=secondbook)
         
         potentialBooks = list ()
