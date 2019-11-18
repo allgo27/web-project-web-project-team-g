@@ -53,6 +53,7 @@ def midresults():
             optionDict['title'] = firstbook
             optionDict['author'] = author[0] 
             optionDict['optionNum'] = 'option'+str(i)
+            print(optionDict)
             potentialBooks.append(optionDict)
             i += 1
             
@@ -61,6 +62,7 @@ def midresults():
             optionDict['title'] = secondbook
             optionDict['author'] = author[0] 
             optionDict['optionNum'] = 'option'+str(i)
+            print(optionDict)
             potentialBooks.append(optionDict)
             i += 1
 
