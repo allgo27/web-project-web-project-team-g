@@ -23,9 +23,9 @@ def data():
     
     return render_template('data.html')
 
-#@app.route('/results', methods=['POST','GET']) #maybe get rid of get?
-#def results():
-#    #we want to learn what 
+@app.route('/results', methods=['POST','GET']) #maybe get rid of get?
+def results():
+    #we hope we're getting fed an optionNum and we also need to somehow have access to our list of dictionaries????? to decipher what 'optionNum' means OH no we should just redo that so optionnum is the bookIDand then we odn't need to pass possibleBooks which would be scary and hard and also we'll need the bookID eventually anyway
 
 @app.route('/midresults', methods=['POST','GET']) 
 def midresults():
@@ -61,7 +61,7 @@ def midresults():
             optionDict = {}
             optionDict['title'] = secondbook
             optionDict['author'] = author[0] 
-            optionDict['optionNum'] = 'option'+str(i)
+            optionDict['optionNum'] = 'option'+str(i) # change this to be the string of the bookID and we'll just use that for rendering results 
             print(optionDict)
             potentialBooks.append(optionDict)
             i += 1
