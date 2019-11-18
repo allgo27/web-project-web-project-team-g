@@ -23,8 +23,9 @@ def data():
     
     return render_template('data.html')
 
-
-@app.route('/newsearch',)
+#@app.route('/results', methods=['POST','GET']) #maybe get rid of get?
+#def results():
+#    #we want to learn what 
 
 @app.route('/midresults', methods=['POST','GET']) 
 def midresults():
