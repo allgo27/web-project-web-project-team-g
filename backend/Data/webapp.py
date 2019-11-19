@@ -23,8 +23,8 @@ def data():
     
     return render_template('data.html')
 
-@app.route('/results', methods=['POST','GET']) #maybe get rid of get?
-def results():
+#@app.route('/results', methods=['POST','GET']) #maybe get rid of get?
+#def results():
     #we hope we're getting fed an optionNum and we also need to somehow have access to our list of dictionaries????? to decipher what 'optionNum' means OH no we should just redo that so optionnum is the bookIDand then we odn't need to pass possibleBooks which would be scary and hard and also we'll need the bookID eventually anyway
 
 @app.route('/midresults', methods=['POST','GET']) 
