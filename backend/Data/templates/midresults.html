@@ -42,7 +42,7 @@
             <div class="findbooks">
             <br>
             <br>
-
+<!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
               {% for book in book1s %}
                   <label for="name" id="ohno"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById({{ book }}).value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
