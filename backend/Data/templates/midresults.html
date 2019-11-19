@@ -39,13 +39,13 @@
         <h2>Find your next favorite books</h2>
         <h3 class="pagetitle">Some titles are used by multiple books; please select the books you intended: </h3>
         <form action="/results.html">
-            <div class="findbooks", id="findbooks">
+            <div class="findbooks">
             <br>
             <br>
 
               {% for book in book1s %}
                   <label for="name" id="ohno"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
-                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById({ 'book' }).value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
+                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById({{ book }}).value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
                 
               {% endfor %}
                 <br>
