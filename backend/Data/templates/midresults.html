@@ -44,8 +44,8 @@
             <br>
 
               {% for book in book1s %}
-                  <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
-                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById('findbooks').value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
+                  <label for="name" id="ohno"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
+                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById('ohno').value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
                 
               {% endfor %}
                 <br>
