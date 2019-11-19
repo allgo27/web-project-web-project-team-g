@@ -21,7 +21,7 @@
             <br>
 
               {% for book in book1s %}
-                createChx(book.title, book.author, book.bookID)
+                <script>createChx(book.title, book.author, book.bookID);</script>
 <!--
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
@@ -29,7 +29,7 @@
               {% endfor %}
                 <br>
               {% for book in book2s %}
-                  createChx(book.title, book.author, book.bookID)
+                  <script>createChx(book.title, book.author, book.bookID);</script>
 <!--
                   <label for="name"><i>{{ book.bookID }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
