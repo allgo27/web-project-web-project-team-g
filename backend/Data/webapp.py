@@ -52,7 +52,7 @@ def midresults():
             optionDict = {}
             optionDict['title'] = firstbook
             optionDict['author'] = author[0] 
-            optionDict['bookID'] = db.getBookID(title, author[0])
+            optionDict['bookID'] = db.getBookID(firstbook, author[0])
             print(optionDict)
             potentialBook1s.append(optionDict)
             
@@ -62,7 +62,7 @@ def midresults():
             optionDict = {}
             optionDict['title'] = secondbook
             optionDict['author'] = author[0] 
-            optionDict['bookID'] = db.getBookID(title, author[0]) # change this to be the string of the bookID and we'll just use that for rendering results 
+            optionDict['bookID'] = db.getBookID(secondbook, author[0]) # change this to be the string of the bookID and we'll just use that for rendering results 
             print(optionDict)
             potentialBook2s.append(optionDict)
 
