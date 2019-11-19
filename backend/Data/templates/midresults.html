@@ -44,7 +44,7 @@
               {% for book in book1s %}
 <!--                <script>createChx(document.getElementById('book').value, document.getElementById('book').value, document.getElementById('book').value);</script>-->
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
-                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById(book1s).value)"><br>
+                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById('book1s'))"><br>
                 
               {% endfor %}
                 <br>
