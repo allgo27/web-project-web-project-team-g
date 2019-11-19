@@ -13,7 +13,7 @@
                 chk.setAttribute('name', bookID);
 
                 var lbl = document.createElement('label');  // CREATE LABEL.
-                lbl.setAttribute(bookID);
+                lbl.setAttribute('for', bookID);
 
                 // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
                 lbl.appendChild(document.createTextNode(title+", by "+author));
