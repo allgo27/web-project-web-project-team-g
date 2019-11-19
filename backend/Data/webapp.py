@@ -69,7 +69,7 @@ def midresults():
 
             
         return render_template('midresults.html',
-                               book1s=potentialBook1s, book2s = potentialBook2s) 
+                               book1s=potentialBook1s, book2s=potentialBook2s) 
 
 
 def main():
