@@ -84,7 +84,7 @@ class DataSource:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
                 return None
             else: 
-                return results
+                return results[0]
 
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
