@@ -20,8 +20,13 @@
             <br>
             <br>
 
-              {% for book in books %}
+              {% for book in book1s %}
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
+                  <input type="checkbox" name=book.optionNum><br>
+              {% endfor %}
+                <br>
+              {% for book in book2s %}
+                  <label for="name"><i>{{ book.bookID }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
               {% endfor %}
                 <div class="shelf">

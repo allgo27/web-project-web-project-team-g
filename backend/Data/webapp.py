@@ -46,29 +46,30 @@ def midresults():
         if secondBookAuthors == None:
             return render_template('newsearch.html', book=secondbook)
         
-        potentialBooks = list ()
-        i = 0
+        potentialBook1s = list()
+        
         for author in firstBookAuthors:
             optionDict = {}
             optionDict['title'] = firstbook
             optionDict['author'] = author[0] 
-            optionDict['optionNum'] = 'option'+str(i)
+            optionDict['bookID'] = getBookID(title, author[0])
             print(optionDict)
-            potentialBooks.append(optionDict)
-            i += 1
+            potentialBook1s.append(optionDict)
             
+        potentialBook2s = list()
+        
         for author in secondBookAuthors:
             optionDict = {}
             optionDict['title'] = secondbook
             optionDict['author'] = author[0] 
-            optionDict['optionNum'] = 'option'+str(i) # change this to be the string of the bookID and we'll just use that for rendering results 
+            optionDict['bookID'] = getBookID(title, author[0]) # change this to be the string of the bookID and we'll just use that for rendering results 
             print(optionDict)
-            potentialBooks.append(optionDict)
-            i += 1
+            potentialBook2s.append(optionDict)
+
 
             
         return render_template('midresults.html',
-                               books=potentialBooks) 
+                               book1s=potentialBook1s, book2s = potentialBook2s) 
 
 
 def main():

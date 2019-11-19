@@ -58,6 +58,8 @@ class DataSource:
             return
 
     def getBookID(self, title, author):
+        
+        
         '''
         Returns the database "book_id" number for specified title by specified author
         PARAMETERS:
@@ -66,7 +68,28 @@ class DataSource:
         RETURN:
             Database "book_id" number
         '''
-        return ""
+        try:
+            cursor = self.connection.cursor()
+            title = (str(title))
+            title = title.lower()
+            query = "SELECT book_id FROM books WHERE lower(title)=(%s) AND authors=(%s);"
+            cursor.execute(query, (str(title), str(author),)) 
+            results = cursor.fetchall()
+            if len(results) == 0:
+                title = title + ' (%'
+                query = "SELECT authors FROM books WHERE lower(title) LIKE %s AND authors=(%s);
+                cursor.execute(query, (str(title), str(author),))                
+                results = cursor.fetchall()
+            if len(results) == 0:
+                print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
+                return None
+            else: 
+                return results
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return
+
 
     def getGoodreadsBookID(self, title, author):
         '''
