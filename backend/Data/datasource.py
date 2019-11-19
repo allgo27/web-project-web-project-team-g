@@ -77,7 +77,7 @@ class DataSource:
             results = cursor.fetchall()
             if len(results) == 0:
                 title = title + ' (%'
-                query = "SELECT authors FROM books WHERE lower(title) LIKE %s AND authors=(%s);"
+                query = "SELECT book_id FROM books WHERE lower(title) LIKE %s AND authors=(%s);"
                 cursor.execute(query, (str(title), str(author),))                
                 results = cursor.fetchall()
             if len(results) == 0:
