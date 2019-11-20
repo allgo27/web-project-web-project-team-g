@@ -22,8 +22,8 @@
             lbl.appendChild(document.createTextNode(title+", by "+author));
 
             // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-            ohno.appendChild(chk);
-            ohno.appendChild(lbl);
+            container.appendChild(chk);
+            container.appendChild(lbl);
             document.getElementById(bookID).focus();
             console.log(chk.id);
             console.log(lbl);
@@ -49,16 +49,18 @@
               {% for book in book1s %}
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.bookID onclick="createChx('{{ book.author }}', '{{ book.title }}', '{{ book.bookID }}')"><br>
-                <p id="ohno"> </p>
+                <p id="container"> </p>
                 
               {% endfor %}
                 <br>
+<!--
               {% for book in book2s %}
                   <script>createChx(book.title, book.author, book.bookID)</script>
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
               {% endfor %}
               
+-->
                 <div class="shelf">
                     <input type="submit" value="See my shelf">
                 </div>
