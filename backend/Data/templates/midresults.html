@@ -55,9 +55,10 @@
             chk.setAttribute('id', bookID);     // SET UNIQUE ID.
             chk.setAttribute('value', bookID);
             chk.setAttribute('name', bookID);
-            console.log(bookID);
             console.log(title);
             console.log(author);
+            console.log(bookID);
+
 
             var lbl = document.createElement('label');  // CREATE LABEL.
             lbl.setAttribute('for', bookID);
@@ -66,8 +67,8 @@
             lbl.appendChild(document.createTextNode(title+", by "+author));
 
             // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-            container.appendChild(chk);
-            container.appendChild(lbl);
+            //container.appendChild(chk);
+            //container.appendChild(lbl);
             document.getElementById(bookID).focus();
             console.log(chk.id);
             console.log(lbl);
