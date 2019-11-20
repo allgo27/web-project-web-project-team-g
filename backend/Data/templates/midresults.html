@@ -51,11 +51,10 @@
                 <br>
               {% for book in book2s %}
                   <script>createChx(book.title, book.author, book.bookID)</script>
-<!--
                   <label for="name"><i>{{ book.bookID }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
--->
               {% endfor %}
+              
                 <div class="shelf">
                     <input type="submit" value="See my shelf">
                 </div>
