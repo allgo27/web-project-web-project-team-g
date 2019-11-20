@@ -4,32 +4,7 @@
     <!--link to css file!-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     <head>
-        <script>
-        function createChx(title, author, bookID ) {
-            var title = title;
-            var author = author;
-            var bookID = bookID;
-            var chk = document.createElement('input');  // CREATE CHECK BOX.
-            chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
-            chk.setAttribute('id', bookID);     // SET UNIQUE ID.
-            chk.setAttribute('value', bookID);
-            chk.setAttribute('name', bookID);
-
-            var lbl = document.createElement('label');  // CREATE LABEL.
-            lbl.setAttribute('for', bookID);
-
-            // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
-            lbl.appendChild(document.createTextNode(title+", by "+author));
-
-            // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-            container.appendChild(chk);
-            container.appendChild(lbl);
-            document.getElementById(bookID).focus();
-            console.log(chk.id);
-            console.log(lbl);
-
-            }
-        </script>
+        
         <title>Select your books</title>
     </head>
     <body class="nothome">
@@ -70,4 +45,30 @@
     		<button type="submit">New Search</button>
 		</form>
     </body>
+    <script>
+        function createChx(title, author, bookID ) {
+            var title = title;
+            var author = author;
+            var bookID = bookID;
+            var chk = document.createElement('input');  // CREATE CHECK BOX.
+            chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
+            chk.setAttribute('id', bookID);     // SET UNIQUE ID.
+            chk.setAttribute('value', bookID);
+            chk.setAttribute('name', bookID);
+
+            var lbl = document.createElement('label');  // CREATE LABEL.
+            lbl.setAttribute('for', bookID);
+
+            // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
+            lbl.appendChild(document.createTextNode(title+", by "+author));
+
+            // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
+            container.appendChild(chk);
+            container.appendChild(lbl);
+            document.getElementById(bookID).focus();
+            console.log(chk.id);
+            console.log(lbl);
+
+            }
+        </script>
 </html>
