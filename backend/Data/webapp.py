@@ -1,3 +1,9 @@
+#TODO:
+#Make our form pretty (checkboxes stacked on top of each other)
+#make our freaking resultspage
+#call our js function to make checkboxes twice? or maybe make it do two things? superunclear ? 
+#make checkboxes do something
+#fix title (so that if I enter 'mockingbird' the title is 'Mockingbird')
 import flask
 from flask import render_template
 from flask import *
