@@ -7,7 +7,7 @@
         
         <title>Select your books</title>
     </head>
-    <body class="nothome" onload="createChx('{{ book1s }}')">
+    <body class="nothome", onload="createChx('{{ book1s }}')">
         <div class=tabs>
             <a href="/">Home</a>
             <a href="/results" class="urhere">&#9758 My Shelf</a>
@@ -52,7 +52,7 @@
             console.log("heyyo");
             console.log(potentialBooks);
             var numBooks = potentialBooks.length;
-            console.log("numBooks", numBooks);
+            console.log(numBooks);
             var i;
             for (i = 0; i < numBooks; i++) {
                 var title = potentialBooks[i][0];
