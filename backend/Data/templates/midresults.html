@@ -5,25 +5,28 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     <head>
         <script>
-        function createChx(title, author, bookID) {
-                var chk = document.createElement('input');  // CREATE CHECK BOX.
-                chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
-                chk.setAttribute('id', bookID);     // SET UNIQUE ID.
-                chk.setAttribute('value', bookID);
-                chk.setAttribute('name', bookID);
+        function createChx(title, author, bookID ) {
+            var title = title;
+            var author = author;
+            var bookID = bookID;
+            var chk = document.createElement('input');  // CREATE CHECK BOX.
+            chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
+            chk.setAttribute('id', bookID);     // SET UNIQUE ID.
+            chk.setAttribute('value', bookID);
+            chk.setAttribute('name', bookID);
 
-                var lbl = document.createElement('label');  // CREATE LABEL.
-                lbl.setAttribute('for', bookID);
+            var lbl = document.createElement('label');  // CREATE LABEL.
+            lbl.setAttribute('for', bookID);
 
-                // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
-                lbl.appendChild(document.createTextNode(title+", by "+author));
+            // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
+            lbl.appendChild(document.createTextNode(title+", by "+author));
 
-                // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-                findbooks.appendChild(chk);
-                findbooks.appendChild(lbl);
-                document.getElementById(bookID).focus();
-                console.log(chk.id)
-                console.log(lbl)
+            // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
+            findbooks.appendChild(chk);
+            findbooks.appendChild(lbl);
+            document.getElementById(bookID).focus();
+            console.log(chk.id);
+            console.log(lbl);
 
             }
         </script>
@@ -44,8 +47,8 @@
             <br>
 <!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
               {% for book in book1s %}
-                  <label for="name" id="ohno"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
-                  <input type="checkbox" name=book.bookID onclick="createChx(document.getElementById({{ book }}).value, document.getElementById('book.author'), document.getElementById('book.bookID'))"><br>
+                  <label for="name" ><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
+                  <input type="checkbox" name=book.bookID onclick="createChx('{{ book.author }}', '{{ book.title }}', '{{ book.bookID }}')"><br>
                 
               {% endfor %}
                 <br>
