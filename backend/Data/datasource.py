@@ -370,6 +370,7 @@ def main():
     book2 = db.getBookID('bless me, ultima', 'Rudolfo Anaya')
     listbooks = db.getBookRecID(book1, book2)
     for bookID in listbooks:
+        print(bookID)
         print(db.getTitle(bookID))
 
 if __name__ == "__main__":
