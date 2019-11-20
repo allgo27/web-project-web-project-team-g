@@ -371,7 +371,7 @@ def main():
     listbooks = db.getBookRecID(book1, book2)
     for bookID in listbooks:
         print(bookID)
-        print(db.getTitle(bookID))
+        print(db.getTitle(bookID[0]))
 
 if __name__ == "__main__":
     main()
