@@ -366,11 +366,11 @@ def main():
     #db.connect("bruelle", "spider268awesome")
     db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
-    book1 = getBookID('atonement', 'Ian McEwan')
-    book2 = getBookID('bless me, ultima', 'Rudolfo Anaya')
+    book1 = db.getBookID('atonement', 'Ian McEwan')
+    book2 = db.getBookID('bless me, ultima', 'Rudolfo Anaya')
     listbooks = db.getBookRecID(book1, book2)
     for bookID in listbooks:
-        print(getTitle(bookID))
+        print(db.getTitle(bookID))
 
 if __name__ == "__main__":
     main()
