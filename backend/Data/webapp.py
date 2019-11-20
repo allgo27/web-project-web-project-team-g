@@ -49,22 +49,22 @@ def midresults():
         potentialBook1s = list()
         
         for author in firstBookAuthors:
-            optionDict = {}
-            optionDict['title'] = firstbook
-            optionDict['author'] = author[0] 
-            optionDict['bookID'] = db.getBookID(firstbook, author[0])
-            print(optionDict)
-            potentialBook1s.append(optionDict)
+            optionList = list()
+            optionList[0] = firstbook
+            optionList[1] = author[0] 
+            optionList[2] = db.getBookID(firstbook, author[0])
+            print(optionList)
+            potentialBook1s.append(optionList)
             
         potentialBook2s = list()
         
         for author in secondBookAuthors:
-            optionDict = {}
-            optionDict['title'] = secondbook
-            optionDict['author'] = author[0] 
-            optionDict['bookID'] = db.getBookID(secondbook, author[0]) # change this to be the string of the bookID and we'll just use that for rendering results 
-            print(optionDict)
-            potentialBook2s.append(optionDict)
+            optionList = list()
+            optionList[0] = secondbook
+            optionList[1] = author[0] 
+            optionList[2] = db.getBookID(secondbook, author[0])
+            print(optionList)
+            potentialBook2s.append(optionList)
 
 
             

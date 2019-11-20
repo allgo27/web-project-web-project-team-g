@@ -7,7 +7,7 @@
         
         <title>Select your books</title>
     </head>
-    <body class="nothome">
+    <body class="nothome", onload="createChx('{{ potentialBook1s }}')", onload="createChx('{{ potentialBook2s }}')">
         <div class=tabs>
             <a href="/">Home</a>
             <a href="/results" class="urhere">&#9758 My Shelf</a>
@@ -21,12 +21,14 @@
             <br>
             <br>
 <!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
+<!--
               {% for book in book1s %}
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.bookID onclick="createChx('{{ book.title }}', '{{ book.author }}', '{{ book.bookID }}')"><br>
-<!--                <p id="container"> </p>-->
+                <p id="container"> </p>
                 
               {% endfor %}
+-->
                 <br>
 <!--
               {% for book in book2s %}
@@ -46,32 +48,35 @@
 		</form>
     </body>
     <script>
-        function createChx(title, author, bookID ) {
-            var title = title;
-            var author = author;
-            var bookID = bookID;
-            var chk = document.createElement('input');  // CREATE CHECK BOX.
-            chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
-            chk.setAttribute('id', bookID);     // SET UNIQUE ID.
-            chk.setAttribute('value', bookID);
-            chk.setAttribute('name', bookID);
-            console.log(title);
-            console.log(author);
-            console.log(bookID);
+        function createChx(potentialBooks) {
+            var numBooks = potentialBooks.length();
+            for (int i = 0; i < numBooks; i++){
+                var title = potentialBooks[i][0];
+                var author = potentialBooks[i][1];
+                var bookID = potentialBooks[i][2];
+                var chk = document.createElement('input');  // CREATE CHECK BOX.
+                chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
+                chk.setAttribute('id', bookID);     // SET UNIQUE ID.
+                chk.setAttribute('value', bookID);
+                chk.setAttribute('name', bookID);
+                console.log(title);
+                console.log(author);
+                console.log(bookID);
 
 
-            var lbl = document.createElement('label');  // CREATE LABEL.
-            lbl.setAttribute('for', bookID);
+                var lbl = document.createElement('label');  // CREATE LABEL.
+                lbl.setAttribute('for', bookID);
 
-            // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
-            lbl.appendChild(document.createTextNode(title+", by "+author));
+                // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
+                lbl.appendChild(document.createTextNode(title+", by "+author));
 
-            // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-            container.appendChild(chk);
-            container.appendChild(lbl);
-            document.getElementById(bookID).focus();
-            console.log(chk);
-            console.log(lbl);
+                // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
+                container.appendChild(chk);
+                container.appendChild(lbl);
+                document.getElementById(bookID).focus();
+                console.log(chk);
+                console.log(lbl);
+            }
 
             }
         </script>
