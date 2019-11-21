@@ -36,7 +36,7 @@ def results():
             newbook['author'] = db.getAuthor(book[0])[0]
             newbook['image_url'] = db.getImageURL(book[0])[0]
             newbook['avg_rating'] = db.getBookRating(book[0])[0]
-            print(newbook['avg_rating'])
+            print(newbook['image_url'])
             bookInfoList.append(newbook)
         #edge case: what if we don't have enough info?
     return render_template('results.html', bookList=bookInfoList)
