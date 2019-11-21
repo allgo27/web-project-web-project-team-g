@@ -281,9 +281,9 @@ class DataSource:
 
             i += 1
         if (book1,) in bookDict:
-            del bookDict[tuple(str(book1))]
+            del bookDict[tuple(book1,)]
         if (book2,) in bookDict:
-            del bookDict[tuple(str(book2))]
+            del bookDict[tuple(book2,)]
 
         j = 0
 
