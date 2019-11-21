@@ -369,6 +369,7 @@ def main():
     book1 = db.getBookID('Atonement', 'Ian McEwan')
     book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
     listbooks = db.getBookRecID(book1, book2)
+    print(listbooks)
     for bookID in listbooks:
         print(bookID)
         print(db.getTitle(bookID[0]))
