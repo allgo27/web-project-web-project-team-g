@@ -269,7 +269,7 @@ class DataSource:
         i = 0
         bookDict = {}
         for userID in fanSet:
-            if i > 100:
+            if i > 300:
                 break
 
             userBooks = self.getBookList(userID[0])
