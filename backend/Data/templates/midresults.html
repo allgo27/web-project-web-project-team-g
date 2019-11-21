@@ -30,6 +30,13 @@
                 
               {% endfor %}
                 <br>
+            
+             {% for book in book2s %}
+                  <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br>
+                  <input type="checkbox" name='{{ book[2] }}' value='true'><br>
+<!--                <p id="container"> </p>-->
+                
+             {% endfor %}
 <!--
               {% for book in book2s %}
                   <script>createChx('{{ book[0] }}','{{ book[1] }}', '{{book[2]}}')</script>
