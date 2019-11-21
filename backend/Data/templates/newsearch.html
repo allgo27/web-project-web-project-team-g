@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,26 +9,16 @@
     <body>
         
         <div class=tabs>
-            <a href="WRhomepage.html" class="urhere">&#9758 Home</a>
-            <a href="data.html"> About the data</a>
+            <a href="/" class="urhere">&#9758 Home</a>
+            <a href="/data"> About the data</a>
         </div>
         <h1>WeeeRead</h1>
         <h2> <i> Find your next favorite books </i> </h2>  
-        <script>
-        function results() {
-        	var book1 = document.getElementById('firstbook').value;
-        	var book2 = document.getElementById('secondbook').value;
-        	document.write("<h1> Excellent we gotcha <\h1>");
-        	document.write("<p> here are the books you inputted: <p>");
-        	document.write(book1 + "<br/>");
-        	document.write(book2 + "<br/>");
-        }
-        </script>
         <div class="content">
             <section>
 
-                <p>Enter the titles of one or more favorite books, then click "see my shelf" to view your customized bookshelf of recommendations based on the books liked by people with similar tastes! For best results enter three books in order of preference.</p>
-                <form onsubmit="return results();">
+                <p>We're sorry, <i> {{book}} </i> is not one of the books in our database. Please check your spelling or try another book title. </p>
+                <form action="/midresults" method="post">
                     <div class="findbooks">
                         <label for="name">Favorite book:</label>
                         <input type="text" name="firstbook"><br><br>

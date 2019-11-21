@@ -49,7 +49,7 @@ class DataSource:
                 results = cursor.fetchall()
             if len(results) == 0:
                 print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
-                exit()
+                return None
             else: 
                 return results
 
@@ -58,6 +58,8 @@ class DataSource:
             return
 
     def getBookID(self, title, author):
+        
+        
         '''
         Returns the database "book_id" number for specified title by specified author
         PARAMETERS:
@@ -66,7 +68,28 @@ class DataSource:
         RETURN:
             Database "book_id" number
         '''
-        return ""
+        try:
+            cursor = self.connection.cursor()
+            title = (str(title))
+            title = title.lower()
+            query = "SELECT book_id FROM books WHERE lower(title)=(%s) AND authors=(%s);"
+            cursor.execute(query, (str(title), str(author),)) 
+            results = cursor.fetchall()
+            if len(results) == 0:
+                title = title + ' (%'
+                query = "SELECT book_id FROM books WHERE lower(title) LIKE %s AND authors=(%s);"
+                cursor.execute(query, (str(title), str(author),))                
+                results = cursor.fetchall()
+            if len(results) == 0:
+                print("Sorry, we don't have that book. Please check spelling and capitalization and try again")
+                return None
+            else: 
+                return results[0][0]
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return
+
 
     def getGoodreadsBookID(self, title, author):
         '''
@@ -340,10 +363,15 @@ def makeTesterList():
 
 def main():
     db = DataSource()
-    db.connect("bruelle", "spider268awesome")
-    #db.connect("yime2", "tablet389cow")
+    #db.connect("bruelle", "spider268awesome")
+    db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
-    print(db.getPossibleAuthors("The Hunger Games")[0][0])
+    book1 = db.getBookID('Atonement', 'Ian McEwan')
+    book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
+    listbooks = db.getBookRecID(book1, book2)
+    for bookID in listbooks:
+        print(bookID)
+        print(db.getTitle(bookID[0]))
 
 if __name__ == "__main__":
     main()
