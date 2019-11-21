@@ -7,7 +7,7 @@
         
         <title>Select your books</title>
     </head>
-    <body class="nothome", onload="createChx({{ book1s }})">
+    <body class="nothome" onload="createChx({{ book1s }}, {{book2s}})">
         <div class=tabs>
             <a href="/">Home</a>
             <a href="/results" class="urhere">&#9758 My Shelf</a>
@@ -23,23 +23,19 @@
             </div>
 
 <!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
-<!--
               {% for book in book1s %}
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
-                  <input type="checkbox" name=book.bookID onclick="createChx('{{ book.title }}', '{{ book.author }}', '{{ book.bookID }}')"><br>
+                  <input type="checkbox" name='{{ book.bookID }}' onclick="createChx('{{ book.title }}', '{{ book.author }}', '{{ book.bookID }}')"><br>
                 <p id="container"> </p>
                 
               {% endfor %}
--->
                 <br>
-<!--
               {% for book in book2s %}
                   <script>createChx(book.title, book.author, book.bookID)</script>
                   <label for="name"><i>{{ book.title }}</i>, by {{ book.author }}</label><br>
                   <input type="checkbox" name=book.optionNum><br>
               {% endfor %}
               
--->
                 <div class="shelf">
                     <input type="submit" value="See my shelf">
                 </div>
@@ -49,8 +45,9 @@
     		<button type="submit">New Search</button>
 		</form>
     </body>
+<!--
     <script>
-        function createChx(potentialBooks) {
+        function createChx(potentialBook1s, potentialBook2s) {
             console.log("heyyo");
             console.log(potentialBooks);
             var numBooks = potentialBooks.length;
@@ -88,4 +85,5 @@
 
             }
         </script>
+-->
 </html>
