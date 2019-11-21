@@ -51,7 +51,7 @@ p {
 }
 
 div.question {
-    color: azure;
+    color: "azure";
     font-weight: bold;
 }
 
