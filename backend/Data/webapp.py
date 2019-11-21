@@ -28,14 +28,14 @@ def results():
         result = request.form
         book1ID = result['book1']
         book2ID = result['book2']
-        bookrecs = getBookRecID(book1ID, book2ID)
+        bookrecs = db.getBookRecID(book1ID, book2ID)
         bookInfoList = list()
         for book in bookrecs:
             newbook = {}
-            newbook['title'] = getTitle(book[0])[0]
-            newbook['author'] = getAuthor(book[0])[0]
-            newbook['image_url'] = getImageURL(book[0])[0]
-            newbook['avg_rating'] = getBookRating(book[0])[0]
+            newbook['title'] = db.getTitle(book[0])[0]
+            newbook['author'] = db.getAuthor(book[0])[0]
+            newbook['image_url'] = db.getImageURL(book[0])[0]
+            newbook['avg_rating'] = db.getBookRating(book[0])[0]
             bookInfoList.append(newbook)
         #edge case: what if we don't have enough info?
     return render_template('results.html', bookList=bookInfolist)
