@@ -61,6 +61,7 @@
                 var author = potentialBooks[i][1];
                 var bookID = potentialBooks[i][2];
                 var chk = document.createElement('input');  // CREATE CHECK BOX.
+                var divy = document.createElement('div');
                 chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
                 chk.setAttribute('id', bookID);     // SET UNIQUE ID.
                 chk.setAttribute('value', bookID);
@@ -77,8 +78,9 @@
                 lbl.appendChild(document.createTextNode(title+", by "+author));
 
                 // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-                container.appendChild(chk);
-                container.appendChild(lbl);
+                divy.appendChild(chk);
+                divy.appendChild(lbl);
+                container.appendChild(divy);
                 document.getElementById(bookID).focus();
                 console.log(chk);
                 console.log(lbl);
