@@ -280,9 +280,9 @@ class DataSource:
                     bookDict[book] = 1
 
             i += 1
-        if book1 in bookDict:
+        if (book1,) in bookDict:
             del bookDict[tuple(str(book1))]
-        if book2 in bookDict:
+        if (book2,) in bookDict:
             del bookDict[tuple(str(book2))]
 
         j = 0
