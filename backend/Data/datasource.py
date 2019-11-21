@@ -283,7 +283,6 @@ class DataSource:
         if (book1,) in bookDict:
             print("book 1 not tuple", book1)
             print("book 1 tuple", (book1,))
-            print("no tuple", bookDict[(book1)])
             print("yes tuple", bookDict[tuple(book1,)])
             del bookDict[tuple(book1,)]
         if (book2,) in bookDict:
