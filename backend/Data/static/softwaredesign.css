@@ -101,7 +101,6 @@ div.msgandcontent {
     float: right;
     margin-right: 3%;
     padding: 1%;
-    clear:both;
 }
 div.aboutcontent{
     background: rgba(255, 255, 255, 0.4);

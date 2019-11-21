@@ -34,8 +34,8 @@
                 <br>
             
              {% for book in book2s %}
-                  <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label>
-                  <input type="radio" name='book2' value='{{ book[2] }}'><br>
+                  <input type="radio" name='book2' value='{{ book[2] }}'>
+                  <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br/>
 <!--                <p id="container"> </p>-->
                 
              {% endfor %}
