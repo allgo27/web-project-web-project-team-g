@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>WeeeRead</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
+    </head>
+    
+    <body>
+        
+        <div class=tabs>
+            <a href="/" class="urhere">&#9758 Home</a>
+            <a href="/data"> About the data</a>
+        </div>
+        <h1>WeeeRead</h1>
+        <h2> <i> Find your next favorite books </i> </h2>  
+        <br>
+        <h3> <i>You have unique taste!</i> </h3>
+        <div class="content">
+            <section>
+
+                <p>We're sorry, we had insufficient data on these books to generate a recommendation for you. Please try other book titles. </p>
+                <form action="/midresults" method="post">
+                    <div class="findbooks">
+                        <label for="name">Favorite book:</label>
+                        <input type="text" name="firstbook"><br><br>
+                        <label for="name">Another favorite book:</label>
+                        <input type="text" name="secondbook"><br>
+                        <div class="shelf">
+                            <input type="submit" value="See my shelf"> 
+                        </div>  
+                    </div>
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
