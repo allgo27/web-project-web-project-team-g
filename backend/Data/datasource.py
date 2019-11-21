@@ -384,7 +384,7 @@ def main():
     for bookID in listbooks:
         print(bookID)
         print(db.getTitle(bookID[0]))
-    print("rating", getBookRating(5237))
+    print("rating", db.getBookRating(5237))
 
 if __name__ == "__main__":
     main()
