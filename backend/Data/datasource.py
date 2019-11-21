@@ -302,7 +302,7 @@ class DataSource:
                         if randomBook != book1 and randomBook != book2:
                             bookDict[randomBookList[i]] = 1
                     break
-            if len(bookDict) < 3:
+            if len(bookDict) == 0:
                 print("Error: insufficient data. Please try again with new books.")
                 #We don't have enough information to generate results; rather than returning None we will figure out how to convey this information to the user
                 return None

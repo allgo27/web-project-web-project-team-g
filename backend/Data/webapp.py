@@ -1,7 +1,6 @@
 #TODO:
 #fix title (so that if I enter 'mockingbird' the title is 'Mockingbird')
 #label our columns "is this the book you meant to select?"
-#get better recs 
 #readDescription? (if takes longer than 10 mins, not worth it)
 #review final rubric to make sure we're doing okay 
 #fix edge cases (not enough fans, not enough books, 1 or 2 books (should still show))
@@ -33,6 +32,8 @@ def results():
         book1ID = result['book1']
         book2ID = result['book2']
         bookrecs = db.getBookRecID(book1ID, book2ID)
+        if bookrecs == None:
+            return render_template('insufficientdata.html')
         bookInfoList = list()
         for book in bookrecs:
             newbook = {}
