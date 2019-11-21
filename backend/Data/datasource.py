@@ -282,9 +282,9 @@ class DataSource:
             i += 1
         print(bookDict)
         if (book1,) in bookDict:
-            del bookDict[tuple(book1,)]
+            bookDict.pop((book1,))
         if (book2,) in bookDict:
-            del bookDict[tuple(book2,)]
+            bookDict.pop((book2,))
 
         j = 0
 
