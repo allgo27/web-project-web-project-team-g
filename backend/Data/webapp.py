@@ -38,7 +38,7 @@ def results():
             newbook['avg_rating'] = db.getBookRating(book[0])[0]
             bookInfoList.append(newbook)
         #edge case: what if we don't have enough info?
-    return render_template('results.html', bookList=bookInfolist)
+    return render_template('results.html', bookList=bookInfoList)
 
 @app.route('/data')
 def data():
