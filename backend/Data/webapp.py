@@ -1,9 +1,8 @@
 #TODO:
-#Make our form pretty (checkboxes stacked on top of each other)
+
 #make our freaking resultspage
-#call our js function to make checkboxes twice? or maybe make it do two things? superunclear ? 
-#make checkboxes do something
 #fix title (so that if I enter 'mockingbird' the title is 'Mockingbird')
+#fix things so that we don't recommend mockingbird for mockingbird 
 import flask
 from flask import render_template
 from flask import *
@@ -23,6 +22,21 @@ def homePage():
     return render_template('WRhomepage.html')
 
 
+@app.route('/results', methods=['POST', 'GET'])
+def results():
+    if request.method == 'POST':
+        result = request.form
+        book1ID = result['book1']
+        book2ID = result['book2']
+        bookrecs = getBookRecID(book1ID, book2ID)
+        bookInfoList = list()
+        for book in bookrecs:
+            newbook = {}
+            newbook['title'] = getTitle(book[0])[0]
+            newbook['author'] = getAuthor(book[0])[0]
+            newbook['image_url'] = getImageURL(book[0])[0]
+            newbook['avg_rating'] = getBookRating(book[0])
+    
 
 @app.route('/data')
 def data():

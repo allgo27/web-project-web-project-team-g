@@ -110,7 +110,18 @@ class DataSource:
         RETURN:
             a tuple of average rating of book and number of people who have rated it overall
         '''
-        return ()
+        
+        try:
+            cursor = self.connection.cursor()
+            book = str(bookID)
+            query = "SELECT average_rating FROM books WHERE book_id=(%s);"
+            cursor.execute(query, (str(bookID),))
+            return cursor.fetchone()
+
+        except Exception as e:
+            print("Something went wrong when executing the query: ", e)
+            return
+        
 
     def getBookTags(self, goodreadsBookID):
         '''
@@ -373,6 +384,7 @@ def main():
     for bookID in listbooks:
         print(bookID)
         print(db.getTitle(bookID[0]))
+    print("rating", getBookRating(5237))
 
 if __name__ == "__main__":
     main()
