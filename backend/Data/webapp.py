@@ -35,8 +35,10 @@ def results():
             newbook['title'] = getTitle(book[0])[0]
             newbook['author'] = getAuthor(book[0])[0]
             newbook['image_url'] = getImageURL(book[0])[0]
-            newbook['avg_rating'] = getBookRating(book[0])
-    
+            newbook['avg_rating'] = getBookRating(book[0])[0]
+            bookInfoList.append(newbook)
+        #edge case: what if we don't have enough info?
+    return render_template('results.html', bookList=bookInfolist)
 
 @app.route('/data')
 def data():

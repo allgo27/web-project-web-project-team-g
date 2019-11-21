@@ -20,33 +20,30 @@
         <table style="width:50%">
                 <tr>
                     <!--don't forget to add style to change pixel size of image!-->
-                    <td><img src="https://kbimages1-a.akamaihd.net/287b3ca4-2f7d-47d4-a078-ad40ad76d7bd/1200/1200/False/percy-jackson-and-the-olympians-the-lightning-thief-the-graphic-novel.jpg" alt="image of book 1" style=height:200px></td>
-                    <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/39/The_Hunger_Games_cover.jpg/220px-The_Hunger_Games_cover.jpg" alt="image of book 2" style=height:200px></td>
-                    <td><img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1334279051l/284440.jpg" alt="image of book 3" style=height:200px></td>
+                    <td><img src='{{ bookList[0].imageURL }}' alt="image of book 1" style=height:200px></td>
+                    <td><img src='{{ bookList[1].imageURL }}' alt="image of book 2" style=height:200px></td>
+                    <td><img src='{{ bookList[2].imageURL }}' alt="image of book 3" style=height:200px></td>
                 </tr>
                 <tr>
                     <td><section>
-                        <h4>The Lightning Thief</h4>
+                        <h4>{{ bookList[0].title }}</h4>
                         <br/>
-                        <p>By: Rick Riordan</p>
-                        <p>Ratings: 4.2 </p>
-                        <p>Tags: "YA" "Fantasy" "Mythology" </p>
+                        <p>By: {{ bookList[0].author }}</p>
+                        <p>Ratings: {{ bookList[0].rating }} </p>
                         <p><a href="http://" target="blank">Read Description</a></p>
                     </section></td>
                     <td><section>
-                        <h4>The Hunger Games</h4>
+                        <h4>{{ bookList[1].title }}</h4>
                         <br/>
-                        <p>By: Suzanne Collins </p>
-                        <p>Ratings: 4.3 </p>
-                        <p>Tags: "Dystopian" "YA" "Futuristic" </p>
+                        <p>By: {{ bookList[1].author }} </p>
+                        <p>Ratings: {{ bookList[1].rating }} </p>
                         <p><a href="http://" target="blank">Read Description</a></p>
                     </section></td>
                     <td><section>
-                        <h4>Skulduggery Pleasant</h4>
+                        <h4>{{ bookList[2].title }}</h4>
                         <br/>
-                        <p>By: Derek Landy </p>
-                        <p>Ratings: 3.8 </p>
-                        <p>Tags: "YA" "Fantasy" "Funny" </p>
+                        <p>By: {{ bookList[2].author }} </p>
+                        <p>Ratings: {{ bookList[2].rating }} </p>
                         <p><a href="http://" target="blank">Read Description</a></p>
                     </section></td>
                 </tr>
