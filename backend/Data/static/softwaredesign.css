@@ -50,7 +50,7 @@ p {
     color: #1e3f5a;
 }
 
-p.question {
+div.question {
     color: azure;
     font-weight: bold;
 }
