@@ -80,7 +80,7 @@ def midresults():
             optionList = list()
             book1ID = db.getBookID(firstbook, author[0])
             print(book1ID)
-            optionList.append(db.getTitle(book1ID))
+            optionList.append(db.getTitle(book1ID)[0])
             optionList.append(author[0]) 
             optionList.append(book1ID)
             print("option list 1", optionList)
