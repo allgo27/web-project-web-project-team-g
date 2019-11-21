@@ -78,7 +78,7 @@ def midresults():
         
         for author in firstBookAuthors:
             optionList = list()
-            book1ID = db.getBookID(firstbook, author[0])[0]
+            book1ID = db.getBookID(firstbook, author[0])
             print(book1ID)
             optionList.append(db.getTitle(book1ID))
             optionList.append(author[0]) 
@@ -90,7 +90,7 @@ def midresults():
         
         for author in secondBookAuthors:
             optionList = list()
-            book2ID = db.getBookID(secondbook, author[0])[0]
+            book2ID = db.getBookID(secondbook, author[0])
             print(book2ID)
             optionList.append(db.getTitle(book2ID))
             optionList.append(author[0]) 
