@@ -25,15 +25,16 @@
 <!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
               {% for book in book1s %}
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br>
-                  <input type="checkbox" name='{{ book[2] }}' value='true'><br>
+                  <input type="radio" name='book1' value='{{ book[2] }}'><br>
 <!--                <p id="container"> </p>-->
                 
               {% endfor %}
                 <br>
+                <br>
             
              {% for book in book2s %}
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br>
-                  <input type="checkbox" name='{{ book[2] }}' value='true'><br>
+                  <input type="radio" name='book2' value='{{ book[2] }}'><br>
 <!--                <p id="container"> </p>-->
                 
              {% endfor %}
