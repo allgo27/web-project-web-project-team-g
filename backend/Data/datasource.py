@@ -283,8 +283,10 @@ class DataSource:
         print(bookDict)
         if (book1,) in bookDict:
             bookDict.pop((book1,))
+            print("popped 1")
         if (book2,) in bookDict:
             bookDict.pop((book2,))
+            print("popped 2")
 
         j = 0
 
