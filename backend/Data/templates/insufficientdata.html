@@ -15,23 +15,25 @@
         <h1>WeeeRead</h1>
         <h2> <i> Find your next favorite books </i> </h2>  
         <br>
-        <div class="content">
+        <div class="msgandcontent">
             <h3> <i>You have unique taste!</i> </h3>
-            <section>
+            <div class="content">
+                <section>
 
-                <p>We're sorry, we had insufficient data on these books to generate a recommendation for you. Please try other book titles. </p>
-                <form action="/midresults" method="post">
-                    <div class="findbooks">
-                        <label for="name">Favorite book:</label>
-                        <input type="text" name="firstbook"><br><br>
-                        <label for="name">Another favorite book:</label>
-                        <input type="text" name="secondbook"><br>
-                        <div class="shelf">
-                            <input type="submit" value="See my shelf"> 
-                        </div>  
-                    </div>
-                </form>
-            </section>
+                    <p>We're sorry, we had insufficient data on these books to generate a recommendation for you. Please try other book titles. </p>
+                    <form action="/midresults" method="post">
+                        <div class="findbooks">
+                            <label for="name">Favorite book:</label>
+                            <input type="text" name="firstbook"><br><br>
+                            <label for="name">Another favorite book:</label>
+                            <input type="text" name="secondbook"><br>
+                            <div class="shelf">
+                                <input type="submit" value="See my shelf"> 
+                            </div>  
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     </body>
 </html>

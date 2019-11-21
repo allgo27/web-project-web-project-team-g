@@ -96,6 +96,12 @@ div.content {
     padding: 1%;
 }
 
+div.msgandcontent {
+    width: 50%;
+    float: right;
+    margin-right: 3%;
+    padding: 1%;
+}
 div.aboutcontent{
     background: rgba(255, 255, 255, 0.4);
     width: 55%;
