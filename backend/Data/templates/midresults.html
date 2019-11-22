@@ -3,7 +3,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     <head>
-        
         <title>Select your books</title>
     </head>
     <body class="nothome" onload="createChx({{ book1s }}, {{book2s}})">
@@ -21,25 +20,23 @@
             <div class="tryingSomethingNew", id="container">
                 <br>
             </div>
-
             <div class="question"> Is this the first book you meant?</div><br/>
+                
               {% for book in book1s %}
                   <input type="radio" name='book1' value='{{ book[2] }}'>
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br/><br/>
-
                 
               {% endfor %}
                 <br>
                 <br>
             <div class="question"> Is this the second book you meant?</div><br/>
+                
              {% for book in book2s %}
                   <input type="radio" name='book2' value='{{ book[2] }}'>
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br/><br/>
-
                 
              {% endfor %}
              <br/>
-              
                 <div class="shelf">
                     <input type="submit" value="See my shelf"><br><br>
                     <p>Loading books may take several seconds... </p>

@@ -306,7 +306,6 @@ class DataSource:
         return bookDict
 
     def getTopBooks(self, bookDict):
-        # Finds max value using code modified from thewolf's suggestion on StackExchange
         '''
         Returns list of top 3 books with highest value (ie number of relevant fans)
 
@@ -374,13 +373,6 @@ def main():
     db.connect("bruelle", "spider268awesome")
     #db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
-#    book1 = db.getBookID('Atonement', 'Ian McEwan')
-#    book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
-#    listbooks = db.getBookRecID(book1, book2)
-#    for bookID in listbooks:
-#        print(bookID)
-#        print(db.getTitle(bookID[0]))
-#    print("rating", db.getBookRating(5237))
 
 if __name__ == "__main__":
     main()

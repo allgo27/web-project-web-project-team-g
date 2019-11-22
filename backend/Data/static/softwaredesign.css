@@ -18,32 +18,34 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol, ul {
   list-style: none;
 }
+
 blockquote, q {
   quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-
-/* added the following */
 
 p {
     font-family: Georgia;
@@ -63,8 +65,7 @@ h2 {
     font-style: italic;
     font-family: optima;
     font-size: 23px;
-    color: #1e3f5a;
-    
+    color: #1e3f5a;  
 }
 
 h3 {
@@ -86,7 +87,6 @@ div.findbooks {
   padding: 45px;
   width: 55%;
   left: 70%;
-  
 }
 
 div.content {
@@ -103,6 +103,7 @@ div.msgandcontent {
     margin-right: 3%;
     padding: 1%;
 }
+
 div.aboutcontent{
     background: rgba(255, 255, 255, 0.4);
     width: 55%;
@@ -138,7 +139,6 @@ td {
     text-align:center;
 }
 
-
 .tabs {
     background: #1e3f5a;
     padding: 17px;
@@ -163,23 +163,20 @@ button {
     background-color: #1e3f5a;
     color: #f5e2bd;
 }
+
 button:hover {
     background-color: #3978AC;
     color:#f5e2bd;
 }
+
 body.nothome {
     background-image:url("datapagebg.png");
 }
+
 body {
-  /* The image used */
   background: rgb(0, 0, 0);
   background-image: url("homebackground.png");
-
-
-  /* Full height */
   height: 100%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

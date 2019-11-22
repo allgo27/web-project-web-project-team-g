@@ -5,9 +5,7 @@
       <title>WeeeRead</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     </head>
-    
     <body>
-        
         <div class=tabs>
             <a href="/" class="urhere">&#9758 Home</a>
             <a href="/data"> About the data</a>
@@ -18,6 +16,7 @@
             <section>
 
                 <p>We're sorry, <i> {{book}} </i> is not one of the books in our database. Please check your spelling or try another book title. </p>
+                
                 <form action="/midresults" method="post">
                     <div class="findbooks">
                         <label for="name">Favorite book:</label>

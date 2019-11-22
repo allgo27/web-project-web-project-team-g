@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +5,6 @@
       <title>WeeeRead</title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     </head>
-    
     <body>
         
         <div class=tabs>
@@ -20,6 +18,7 @@
             <section>
 
                 <p>Enter the titles of two favorite books, then click "see my shelf" to view your customized bookshelf of recommendations based on the books liked by people with similar tastes! (Note: our dataset was published in 2017, so books must have been published prior to that year.) </p>
+                
                 <form action="/midresults" method="post">
                     <div class="findbooks">
                         <label for="name">Favorite book:</label>
