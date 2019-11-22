@@ -375,8 +375,8 @@ def makeTesterList():
 
 def main():
     db = DataSource()
-    #db.connect("bruelle", "spider268awesome")
-    db.connect("yime2", "tablet389cow")
+    db.connect("bruelle", "spider268awesome")
+    #db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
     book1 = db.getBookID('Atonement', 'Ian McEwan')
     book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
