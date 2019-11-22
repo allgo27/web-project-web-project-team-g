@@ -124,6 +124,7 @@ div.aboutcontent{
 div.question {
     color: rgba(245, 226, 189, 0.7);
     font-style: italic;
+    font-size: larger;
 }
 
 table {
