@@ -1,12 +1,9 @@
 #TODO:
-#fix title (so that if I enter 'mockingbird' the title is 'Mockingbird')
-#label our columns "is this the book you meant to select?"
 #readDescription? (if takes longer than 10 mins, not worth it)
 #review final rubric to make sure we're doing okay 
-#fix edge cases (not enough fans, not enough books, 1 or 2 books (should still show))
 #add note that says loading rcommendations may take a hot sec but it'll be worth it (can't read everything in three seconds you know)
 #add to homepage and newSearch that dataset is from 2017 (but check spellg if pretty sure it should be there)
-#put in read me the edge case 
+
 import flask
 from flask import render_template
 from flask import *

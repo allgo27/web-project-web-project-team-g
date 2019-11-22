@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="eng">
     <meta charset="utf-8">
-    <!--link to css file!-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='softwaredesign.css') }}" />
     <head>
         
@@ -23,12 +22,11 @@
                 <br>
             </div>
 
-<!-- So! The second version (the for loop for book2s) is what Emily and I did Tuesday morning. The first for loop (the one for book2s) is leftover from all the shit I (Evan) tried Tuesday evening. Neither work. Also it's onclick instead of onload right now so I could test things. Unfortunately testing proved infuriating and nothing works still. Hopefully Amy will answer our email soon? -->
             <div class="question"> Is this the first book you meant?</div><br/>
               {% for book in book1s %}
                   <input type="radio" name='book1' value='{{ book[2] }}'>
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br/><br/>
-<!--                <p id="container"> </p>-->
+
                 
               {% endfor %}
                 <br>
@@ -37,20 +35,14 @@
              {% for book in book2s %}
                   <input type="radio" name='book2' value='{{ book[2] }}'>
                   <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br/><br/>
-<!--                <p id="container"> </p>-->
+
                 
              {% endfor %}
              <br/>
-<!--
-              {% for book in book2s %}
-                  <script>createChx('{{ book[0] }}','{{ book[1] }}', '{{book[2]}}')</script>
-                  <label for="name"><i>{{ book[0] }}</i>, by {{ book[1] }}</label><br>
-                  <input type="checkbox" name='{{ book[2] }}'><br>
-              {% endfor %}
--->
               
                 <div class="shelf">
-                    <input type="submit" value="See my shelf">
+                    <input type="submit" value="See my shelf"> <br>
+                    <h3>Please allow several seconds for our algorithm to find your perfect recommendations! </h3>
                 </div>
             </div>
         </form>
@@ -58,45 +50,4 @@
     		<button type="submit">New Search</button>
 		</form>
     </body>
-<!--
-    <script>
-        function createChx(potentialBook1s, potentialBook2s) {
-            console.log("heyyo");
-            console.log(potentialBooks);
-            var numBooks = potentialBooks.length;
-            console.log(numBooks);
-            var i;
-            for (i = 0; i < numBooks; i++) {
-                var title = potentialBooks[i][0];
-                var author = potentialBooks[i][1];
-                var bookID = potentialBooks[i][2];
-                var chk = document.createElement('input');  // CREATE CHECK BOX.
-                var divy = document.createElement('div');
-                chk.setAttribute('type', 'checkbox');       // SPECIFY THE TYPE OF ELEMENT.
-                chk.setAttribute('id', bookID);     // SET UNIQUE ID.
-                chk.setAttribute('value', bookID);
-                chk.setAttribute('name', bookID);
-                console.log(title);
-                console.log(author);
-                console.log(bookID);
-
-
-                var lbl = document.createElement('label');  // CREATE LABEL.
-                lbl.setAttribute('for', bookID);
-
-                // CREATE A TEXT NODE AND APPEND IT TO THE LABEL.
-                lbl.appendChild(document.createTextNode(title+", by "+author));
-
-                // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
-                divy.appendChild(chk);
-                divy.appendChild(lbl);
-                container.appendChild(divy);
-                document.getElementById(bookID).focus();
-                console.log(chk);
-                console.log(lbl);
-            }
-
-            }
-        </script>
--->
 </html>
