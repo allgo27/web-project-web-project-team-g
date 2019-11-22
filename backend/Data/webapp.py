@@ -39,7 +39,8 @@ def results():
             newbook['author'] = db.getAuthor(book[0])[0]
             newbook['image_url'] = db.getImageURL(book[0])[0]
             newbook['avg_rating'] = db.getBookRating(book[0])[0]
-            print(newbook['image_url'])
+            searchURL = "https://www.amazon.com/s?k="+db.getTitle(book[0])[0]
+            newbook['searchURL'] = searchURL
             bookInfoList.append(newbook)
         #edge case: what if we don't have enough info?
     return render_template('results.html', bookList=bookInfoList)
@@ -81,6 +82,7 @@ def midresults():
             optionList.append(db.getTitle(book1ID)[0])
             optionList.append(author[0]) 
             optionList.append(book1ID)
+            
             print("option list 1", optionList)
             potentialBook1s.append(optionList)
             

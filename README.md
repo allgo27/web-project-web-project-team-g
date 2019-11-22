@@ -13,3 +13,5 @@ NOTE: We chose to narrow the scope of our project in order to more fully meet th
 NOTE: If one or two books are returned, our website should simply show those two despite the html code anticipating three. However, we could not find instances of this in our data. Based on html behavior as we understand it, we are fairly confident that this will not be an issue. 
 
 NOTE: We noticed that the homepage tag line is difficult to read (tree in background slightly obscures it) if the window is too small. We have not been able to find a satisfactory way to fix this.
+
+NOTE: After loading our website once, we're no longer able to adjust the css and see those changes reflected in the website unless we run the website in a new browser or incognito mode. We seem to be storing the css file somewhere on the browser, so refreshing the page doesn't make it re-load the css. This shouldn't cause any user issues, but does make things slightly more complicated if you attempt to change anything in the css. 
