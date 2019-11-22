@@ -280,7 +280,7 @@ class DataSource:
                     bookDict[book] = 1
 
             i += 1
-        print(bookDict)
+            
         if (book1,) in bookDict:
             bookDict.pop((book1,))
         if (book2,) in bookDict:
@@ -288,9 +288,6 @@ class DataSource:
 
         j = 0
 
-
-       #If bookDict lacks sufficient books, add one fan's liked books to bookDict until it has enough.
-        #pick a fan. If that fan has 3 or more books, choose their books. Else, pick another fan. Repeat.
         booksNeeded = 3 - len(bookDict)
         if booksNeeded > 0:
             while len(fanSet) != 0:
@@ -304,7 +301,6 @@ class DataSource:
                     break
             if len(bookDict) == 0:
                 print("Error: insufficient data. Please try again with new books.")
-                #We don't have enough information to generate results; rather than returning None we will figure out how to convey this information to the user
                 return None
 
         return bookDict
@@ -378,14 +374,13 @@ def main():
     db.connect("bruelle", "spider268awesome")
     #db.connect("yime2", "tablet389cow")
     #db.connect("allgoodm", "cow245happy")
-    book1 = db.getBookID('Atonement', 'Ian McEwan')
-    book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
-    listbooks = db.getBookRecID(book1, book2)
-    print(listbooks)
-    for bookID in listbooks:
-        print(bookID)
-        print(db.getTitle(bookID[0]))
-    print("rating", db.getBookRating(5237))
+#    book1 = db.getBookID('Atonement', 'Ian McEwan')
+#    book2 = db.getBookID('Bless Me, Ultima', 'Rudolfo Anaya')
+#    listbooks = db.getBookRecID(book1, book2)
+#    for bookID in listbooks:
+#        print(bookID)
+#        print(db.getTitle(bookID[0]))
+#    print("rating", db.getBookRating(5237))
 
 if __name__ == "__main__":
     main()
