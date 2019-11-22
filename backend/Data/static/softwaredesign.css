@@ -121,6 +121,11 @@ div.aboutcontent{
     
 }
 
+div.question {
+    color: rgba(245, 226, 189, 0.7);
+    font-style: italic;
+}
+
 table {
     background: rgba(255, 255, 255, 0.4);
     width: 55%;
