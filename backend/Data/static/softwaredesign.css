@@ -51,8 +51,8 @@ p {
 }
 
 div.question {
-    color: #BDE9EB;
-    font-weight: bold;
+    color: rgba(245, 226, 189, 0.7);
+    font-style: italic;
 }
 
 h1 {
